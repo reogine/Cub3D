@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/01/25 12:49:35 by midfath          ###   ########.fr       */
+/*   Updated: 2023/01/29 17:10:40 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,24 @@
 # include <stdio.h>
 # include <mlx.h>
 
+typedef struct s_ply
+{
+  int x;
+  int y;
+  char  dir;
+  
+} t_ply;
+
 typedef struct t_window 
 {
-    
+  char      **map;
+  int       height;
+  int       width;
+  void      *mlx;
+  void      *win_ptr;
+  int       x;
+  int       y;
+  t_player  p;
 };
 
 void  open_window();

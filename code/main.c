@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 10:44:09 by midfath           #+#    #+#             */
-/*   Updated: 2023/01/25 12:57:35 by midfath          ###   ########.fr       */
+/*   Updated: 2023/01/29 16:26:16 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #define mapHeight 24
 #define screenWidth 640
 #define screenHeight 480
+#define tileSize 32;
 
 int worldMap[mapWidth][mapHeight]=
 {
@@ -45,3 +46,9 @@ int worldMap[mapWidth][mapHeight]=
   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
+
+int main()
+{
+  init_win()
+  open_window();
+}
