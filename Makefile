@@ -15,10 +15,11 @@ NAME		= $(BIN_DIR)/$(BIN)
 LIBFT		= libft/libft.a
 CC			= gcc
 CFLAGS	= -Wall -Wextra -Werror 
-LMLX		= -lmlx -framework OpenGL -framework AppKit
+LMLX		=	-L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
+#LMLX 	= -lmlx -framework OpenGL -framework  AppKit
 RM			= rm -rf
 PRINTF 	= printf
-HEADERS	= FT_headers/
+HEADERS	= ../FT_headers  -I /usr/X11/include 
 
 SRC =	main.c \
 
@@ -30,8 +31,8 @@ $(NAME) : creat_dir do_libc $(OBJ)
 		@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -I $(HEADERS) $(LMLX) -o $(NAME)
 		@$(PRINTF) "\r%100s\r$(BLUE)$(NAME) is up to date!$(DEFAULT)\n"
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c w
+	@$(CC) $(CFLAGS) $(LMLX) -I $(HEADERS) -c $< -o $@
 	@$(PRINTF) "\rCompiling $(BLUE)$<$(DEFAULT)..."
 
 bonus : all

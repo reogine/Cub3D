@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<window.h>
+#include "../Ft_headers/window.h"
 
 
 int worldMap[mapWidth][mapHeight]=
@@ -43,6 +43,9 @@ int worldMap[mapWidth][mapHeight]=
 
 int main()
 {
-  init_win();
-  open_window();
+  t_window  *win;
+
+  win = NULL;
+  init_win(win);
+  open_window(win);
 }

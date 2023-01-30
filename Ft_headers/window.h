@@ -11,38 +11,38 @@
 /* ************************************************************************** */
 
 #ifndef WINDOW_H
-# define 
+# define  WINDOW_H 
 # include <stdio.h>
 # include <mlx.h>
  
 #define mapWidth 24
 #define mapHeight 24
-#define screenWidth 640
-#define screenHeight 480
+#define screenWidth (mapWidth * tileSize) 
+#define screenHeight (mapHeight * tileSize) 
 #define tileSize 32;
-
 
 typedef struct s_ply
 {
-  int x;
-  int y;
-  char  dir;
+  float x;
+  float y;
+  float  rot_ang;
   
 } t_ply;
 
-typedef struct t_window 
+typedef struct s_window 
 {
   char      **map;
-  int       height;
-  int       width;
+  int       height;
+  int       width;
   void      *mlx;
   void      *win_ptr;
   int       x;
   int       y;
-  t_player  p;
-};
+  t_ply     *p;
+} t_window;
 
+void  init_win(t_window *win);
 void  open_window(t_window  *win);
 
-#endif // !WINDOW_h
+#endif // !WINDOW_H
 
