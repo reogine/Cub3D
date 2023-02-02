@@ -19,20 +19,20 @@ LMLX		=	-L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
 #LMLX 	= -lmlx -framework OpenGL -framework  AppKit
 RM			= rm -rf
 PRINTF 	= printf
-HEADERS	= ../FT_headers  -I /usr/X11/include 
+HEADERS	=	-I ./FT_headers/  -I /usr/X11/include 
 
-SRC =	main.c \
+SRC =	main.c map2D.c\
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 all : $(NAME)
 
 $(NAME) : creat_dir do_libc $(OBJ)
-		@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -I $(HEADERS) $(LMLX) -o $(NAME)
+		@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(HEADERS) $(LMLX) -o $(NAME)
 		@$(PRINTF) "\r%100s\r$(BLUE)$(NAME) is up to date!$(DEFAULT)\n"
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c w
-	@$(CC) $(CFLAGS) $(LMLX) -I $(HEADERS) -c $< -o $@
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 	@$(PRINTF) "\rCompiling $(BLUE)$<$(DEFAULT)..."
 
 bonus : all

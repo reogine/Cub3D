@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 10:44:09 by midfath           #+#    #+#             */
-/*   Updated: 2023/01/30 09:36:11 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/01 17:16:21 by mostapha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Ft_headers/window.h"
+#include <window.h>
 
 
 int worldMap[mapWidth][mapHeight]=
