@@ -18,6 +18,8 @@ t_window *init_win()
 
 
   win = (t_window *)malloc(sizeof(t_window));
+  win->p = (t_ply *)malloc(sizeof(t_ply)); 
+  init_ply(win->p);
   win->x = 0;
   win->y = 0;
   win->mlx = mlx_init();
@@ -25,13 +27,14 @@ t_window *init_win()
   win->width = (mapHeight * tileSize);
   win->win_ptr = mlx_new_window(win->mlx, win->height, win->width, "game");
   win->map = NULL;
+
   return (win);
 }
 
 void  open_window(t_window  *win)
 {
- int  i;
+ // int  i;
 
-  i = 0;
+  // i = 0;
   mlx_loop(win->mlx);
 }

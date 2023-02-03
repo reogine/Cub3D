@@ -22,11 +22,17 @@
 
 typedef struct s_ply
 {
-  float x;
-  float y;
-  float  rot_ang;
+  double x;
+  double y;
+  double  rot_ang;
   
 } t_ply;
+
+typedef struct s_xy
+{
+ double x;
+ double y;
+} t_xy;
 
 typedef struct s_window 
 {
@@ -37,11 +43,12 @@ typedef struct s_window
   void      *win_ptr;
   int       x;
   int       y;
-  // t_ply     *p;
+  t_ply     *p;
 } t_window;
 
 t_window  *init_win();
 void  open_window(t_window  *win);
+void  init_ply(t_ply);
 
 #endif // !WINDOW_H
 
