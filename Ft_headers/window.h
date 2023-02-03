@@ -48,7 +48,6 @@ typedef struct s_window
 
 t_window  *init_win();
 void  open_window(t_window  *win);
-void  init_ply(t_ply);
 
 #endif // !WINDOW_H
 

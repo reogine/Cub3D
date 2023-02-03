@@ -19,7 +19,7 @@ t_window *init_win()
 
   win = (t_window *)malloc(sizeof(t_window));
   win->p = (t_ply *)malloc(sizeof(t_ply)); 
-  init_ply(win->p);
+  // init_ply(win->p);
   win->x = 0;
   win->y = 0;
   win->mlx = mlx_init();
