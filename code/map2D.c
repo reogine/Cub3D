@@ -6,24 +6,32 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:03:20 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/01 17:20:41by mostapha         ###   ########.fr       */
+/*   Updated: 2023/02/03 00:44:15 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <window.h>
 
-void init_win(t_window *win)
+t_window *init_win()
 {
+  t_window  *win;
+
+
+  win = (t_window *)malloc(sizeof(t_window));
   win->x = 0;
   win->y = 0;
   win->mlx = mlx_init();
   win->height = (mapWidth * tileSize); 
   win->width = (mapHeight * tileSize);
-  win->win_ptr = NULL;
+  win->win_ptr = mlx_new_window(win->mlx, win->height, win->width, "game");
   win->map = NULL;
+  return (win);
 }
 
 void  open_window(t_window  *win)
 {
-  win->win_ptr = mlx_new_window(win->mlx, win->width, win->height, "game");
+ int  i;
+
+  i = 0;
+  mlx_loop(win->mlx);
 }

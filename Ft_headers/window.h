@@ -40,7 +40,7 @@ typedef struct s_window
   // t_ply     *p;
 } t_window;
 
-void  init_win(t_window *win);
+t_window  *init_win();
 void  open_window(t_window  *win);
 
 #endif // !WINDOW_H

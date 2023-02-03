@@ -45,7 +45,6 @@ int main()
 {
   t_window  *win;
 
-  win = NULL;
-  init_win(win);
+  win = init_win();
   open_window(win);
 }
