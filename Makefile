@@ -15,11 +15,11 @@ NAME		= $(BIN_DIR)/$(BIN)
 LIBFT		= libft/libft.a
 CC			= gcc
 CFLAGS	= -Wall -Wextra -Werror 
-LMLX		=	-L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
-# LMLX 	= -lmlx -framework OpenGL -framework  AppKit
+# LMLX		=	-L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
+LMLX		= -lmlx -framework OpenGL -framework  AppKit
 RM			= rm -rf
 PRINTF 	= printf
-HEADERS	=	-I ./FT_headers/  -I /usr/X11/include 
+HEADERS	=	-I ./libft -I ./FT_headers/  -I /usr/X11/include 
 
 SRC =	main.c map2D.c display.c\
 

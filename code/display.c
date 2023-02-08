@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/07 22:14:40 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/08 03:56:52 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ t_tileset	ft_assign_tiles(t_window *w)
 
 int	key_pressed(int key, t_window *w)
 {
-	if ((key == KEY_W || key == KEY_UP)) 
+	// if ((key == KEY_W || key == KEY_UP)) 
 		// ft_go_up(w);
-	else if (key == KEY_S || key == KEY_DOWN) 
+	// else if (key == KEY_S || key == KEY_DOWN) 
 		// ft_go_down(w);
-	else if (key == KEY_A || key == KEY_LEFT)
+	// else if (key == KEY_A || key == KEY_LEFT)
 		// ft_go_right(w);
-	else if (key == KEY_D || key == KEY_RIGHT)
+	// else if (key == KEY_D || key == KEY_RIGHT)
 		// ft_go_left(w);
-	else if (key == KEY_ESC)
+	if (key == KEY_ESC)
 		end_window(w);
 	return (0);
 }

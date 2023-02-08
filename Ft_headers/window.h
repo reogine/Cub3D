@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/08 01:00:21 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/08 03:51:03 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define  WINDOW_H 
 # include <stdio.h>
 # include <mlx.h>
-#include <stdlib.h>
+# include <stdlib.h>
+# include <libft.h>
 
 #define mapWidth 25
 #define mapHeight 25
-#define TILESIZE 32
+#define TILESIZE 38
 /*images size*/
 # define SIZE 38
 # define COL_STRIP 1
@@ -107,10 +108,11 @@ typedef struct s_window
 
 t_window  *init_win();
 void      open_window(t_window  *win);
-void      min_map_display(t_window win);
+int       mini_map_display(t_window win);
 void      ft_put_img(t_window *w, void *img,int x, int y);
-t_tileset	ft_assign_tiles(t_window *w);
-int	end_window(t_window *w);
+t_tileset	ft_assign_tx(t_window *w);
+void      init_tx();
+int       end_window(t_window *w);
+void	    ft_mapping(t_window *w, int i, int j);
  
 #endif // !WINDOW_H
-

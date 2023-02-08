@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:03:20 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/08 01:00:24 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/08 03:58:09 by midfath          ###   ########.fr       */
 /*                                                                           */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ t_window *init_win()
   t_window  *win;
 
 
-  init_tileset(win);
+  // init_tx(win);
   win = (t_window *)malloc(sizeof(t_window));
   win->ply = (t_ply *)malloc(sizeof(t_ply)); 
   // init_ply(win->p);
   win->x = 0;
   win->y = 0;
   win->mlx = mlx_init();
-  win->height = (mapWidth * tileSize); 
-  win->width = (mapHeight * tileSize);
+  win->height = (mapWidth * TILESIZE); 
+  win->width = (mapHeight * TILESIZE);
   win->win_ptr = mlx_new_window(win->mlx, win->height, win->width, "game");
-  win->map = ft_matrixdup(map);
-  ft_assign_tiles(win);
+  win->map = ft_matrdupix((char**)map[0]);
+  // ft_assign_tx(win);
   return (win);
 }
 
@@ -42,30 +42,41 @@ void  open_window(t_window  *win)
   // int  i;
   // mini_map_display(win);
   // i = 0;
-  mlx_loop_hook(win->mlx, key_pressed, (void *)win);
+  // mlx_loop_hook(win->mlx, key_pressed, (void *)win);
+  mlx_loop_hook(win->mlx, mini_map_display, (void *)win);
+  mlx_hook(win->mlx, 17, 0, end_window, (void *)win);
   mlx_loop(win->mlx);
 }
 
-void  mini_map_display(t_window *win) 
+int mini_map_display(t_window win)
 {
-  t_xy  cordo;
-  t_xy  end;
+  int   i;
+  int   j;
+  // t_xy  cordo;
+  // t_xy  end;
 
-  while (win->map[][])
-    { // square(win, cordo); 
-    }
+  i = 0;
+  while (win->map[i])
+  { // square(win, cordo); 
+    j = 0;
+    while (win->map[j])
+      {
+        ft_mapping(win,i ,j);
+        i++;
+      }
+      j++;
+  }
 }
 
 void	ft_mapping(t_window *w, int i, int j)
-    mlx_put_image_to_window(w->id, w->w_id, w->tileset.wall \
+{
+    mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.wall \
                             , i * SIZE, j * SIZE);
-  else if (w->map[j][i] == 'C')
-      mlx_put_image_to_window(w->id, w->w_id, w->tileset.coin \
-                              , i * SIZE, j * SIZE);
+  else if (w->map[j][i] == 'C') mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.coin \ , i * SIZE, j * SIZE);
   else if (w->map[j][i] == 'E')
-      mlx_put_image_to_window(w->id, w->w_id, w->tileset.door \
+      mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.door \
                                 , i * SIZE, j * SIZE);
   else if (w->map[j][i] == '0')
-      mlx_put_image_to_window(w->id, w->w_id, w->tileset.terrain \
+      mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.terrain \
                                   , i * SIZE, j * SIZE);
 }
