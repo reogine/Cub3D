@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:03:20 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/06 17:51:43 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/08 01:00:24 by midfath          ###   ########.fr       */
 /*                                                                           */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_window *init_win()
   t_window  *win;
 
 
-  init_tileset();
+  init_tileset(win);
   win = (t_window *)malloc(sizeof(t_window));
   win->ply = (t_ply *)malloc(sizeof(t_ply)); 
   // init_ply(win->p);
@@ -32,17 +32,17 @@ t_window *init_win()
   win->height = (mapWidth * tileSize); 
   win->width = (mapHeight * tileSize);
   win->win_ptr = mlx_new_window(win->mlx, win->height, win->width, "game");
-  win->map = NULL;
-
+  win->map = ft_matrixdup(map);
+  ft_assign_tiles(win);
   return (win);
 }
 
 void  open_window(t_window  *win)
 {
   // int  i;
-  mini_map_display(win);
+  // mini_map_display(win);
   // i = 0;
-
+  mlx_loop_hook(win->mlx, key_pressed, (void *)win);
   mlx_loop(win->mlx);
 }
 
@@ -52,9 +52,7 @@ void  mini_map_display(t_window *win)
   t_xy  end;
 
   while (win->map[][])
-    {
-      // square(win, cordo); 
-
+    { // square(win, cordo); 
     }
 }
 

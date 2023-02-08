@@ -21,7 +21,7 @@ RM			= rm -rf
 PRINTF 	= printf
 HEADERS	=	-I ./FT_headers/  -I /usr/X11/include 
 
-SRC =	main.c map2D.c\
+SRC =	main.c map2D.c display.c\
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

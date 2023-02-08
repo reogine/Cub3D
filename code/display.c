@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/06 01:32:24 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/07 22:14:40 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,29 @@ t_tileset	ft_assign_tiles(t_window *w)
 		"assets/terrain.xpm", &size, &size);
 	w->tileset.wall = mlx_xpm_file_to_image(w->mlx, \
 		"assets/wall.xpm", &size, &size);
+}
+
+int	key_pressed(int key, t_window *w)
+{
+	if ((key == KEY_W || key == KEY_UP)) 
+		// ft_go_up(w);
+	else if (key == KEY_S || key == KEY_DOWN) 
+		// ft_go_down(w);
+	else if (key == KEY_A || key == KEY_LEFT)
+		// ft_go_right(w);
+	else if (key == KEY_D || key == KEY_RIGHT)
+		// ft_go_left(w);
+	else if (key == KEY_ESC)
+		end_window(w);
+	return (0);
+}
+
+
+int	end_window(t_window *w)
+{
+	ft_matfreex(&w->map);
+	mlx_clear_window(w->mlx, w->win_ptr);
+	mlx_destroy_window(w->mlx, w->win_ptr);
+	exit (0);
+	return (0);
 }

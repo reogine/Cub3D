@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_countchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: midfath <midfath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 10:44:09 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/06 18:49:24 by midfath          ###   ########.fr       */
+/*   Created: 2022/04/01 16:02:56 by midfath           #+#    #+#             */
+/*   Updated: 2022/04/01 16:03:15 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <window.h>
+#include "libft.h"
 
-int main()
+int	ft_countchar(char *s, char c)
 {
-  t_window  *win;
+	int	count;
 
-  win = init_win();
-  open_window(win);
+	if (!s)
+		return (0);
+	count = 0;
+	while (*s)
+	{
+		if (*s == c)
+			count++;
+		s++;
+	}
+	return (count);
 }

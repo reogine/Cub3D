@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/06 01:31:42 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/08 01:00:21 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #define TILESIZE 32
 /*images size*/
 # define SIZE 38
-
+# define COL_STRIP 1
 /*Key Codes :*/
 # define KEY_ESC 53
 # define KEY_W 13
@@ -61,6 +61,16 @@ char  map[25][25]={
   "111111111111111111111111",
 };
 
+typedef struct s_texs
+{
+	void	*add;
+	void	*img;
+	int		h_texs;
+	int		w_texs;
+	int		pxl_strip;
+}t_texs;
+
+
 typedef struct s_ply
 {
   double x;
@@ -79,7 +89,7 @@ typedef struct s_tileset
 {
   void  *wall;
   void  *terain;
-} t_tileset
+} t_tileset;
 
 typedef struct s_window 
 {
@@ -97,7 +107,10 @@ typedef struct s_window
 
 t_window  *init_win();
 void      open_window(t_window  *win);
-void      min_map_display(t_window win);  
-
+void      min_map_display(t_window win);
+void      ft_put_img(t_window *w, void *img,int x, int y);
+t_tileset	ft_assign_tiles(t_window *w);
+int	end_window(t_window *w);
+ 
 #endif // !WINDOW_H
 
