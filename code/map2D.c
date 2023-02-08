@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:03:20 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/08 03:58:09 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/08 13:47:41 by midfath          ###   ########.fr       */
 /*                                                                           */
 /* ************************************************************************** */
 
@@ -21,6 +21,33 @@ t_window *init_win()
 {
   t_window  *win;
 
+  char  *map[]={
+    "111111111111111111111111",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "100000000000000000000001",
+    "111111111111111111111111",
+  };
+
 
   // init_tx(win);
   win = (t_window *)malloc(sizeof(t_window));
@@ -32,8 +59,8 @@ t_window *init_win()
   win->height = (mapWidth * TILESIZE); 
   win->width = (mapHeight * TILESIZE);
   win->win_ptr = mlx_new_window(win->mlx, win->height, win->width, "game");
-  win->map = ft_matrdupix((char**)map[0]);
-  // ft_assign_tx(win);
+  win->map = ft_matrdupix(map);
+  ft_assign_tiles(win);
   return (win);
 }
 
@@ -43,12 +70,13 @@ void  open_window(t_window  *win)
   // mini_map_display(win);
   // i = 0;
   // mlx_loop_hook(win->mlx, key_pressed, (void *)win);
-  mlx_loop_hook(win->mlx, mini_map_display, (void *)win);
+  // mlx_loop_hook(win->mlx, mini_map_display, (void *)win);
+  printf("here\n");
   mlx_hook(win->mlx, 17, 0, end_window, (void *)win);
   mlx_loop(win->mlx);
 }
 
-int mini_map_display(t_window win)
+int mini_map_display(t_window *win)
 {
   int   i;
   int   j;
@@ -66,17 +94,21 @@ int mini_map_display(t_window win)
       }
       j++;
   }
+  return (0);
 }
 
 void	ft_mapping(t_window *w, int i, int j)
 {
-    mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.wall \
+  if (w->map[j][i] == '1')  
+  mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.wall \
                             , i * SIZE, j * SIZE);
-  else if (w->map[j][i] == 'C') mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.coin \ , i * SIZE, j * SIZE);
-  else if (w->map[j][i] == 'E')
-      mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.door \
-                                , i * SIZE, j * SIZE);
+  // else if (w->map[j][i] == 'C')
+  //     mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.coin \
+  //                             , i * SIZE, j * SIZE);
+  // else if (w->map[j][i] == 'E')
+  //     mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.door \
+  //                               , i * SIZE, j * SIZE);
   else if (w->map[j][i] == '0')
-      mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.terrain \
+      mlx_put_image_to_window(w->mlx, w->win_ptr, w->tileset.terain \
                                   , i * SIZE, j * SIZE);
 }
