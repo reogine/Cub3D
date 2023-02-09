@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:03:20 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/08 13:47:41 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/09 13:40:47 by midfath          ###   ########.fr       */
 /*                                                                           */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_window *init_win()
   win->height = (mapWidth * TILESIZE); 
   win->width = (mapHeight * TILESIZE);
   win->win_ptr = mlx_new_window(win->mlx, win->height, win->width, "game");
-  win->map = ft_matrdupix(map);
+  win->map = map/* ft_matrdupix(map) */;
   ft_assign_tiles(win);
   return (win);
 }
@@ -69,10 +69,9 @@ void  open_window(t_window  *win)
   // int  i;
   // mini_map_display(win);
   // i = 0;
-  // mlx_loop_hook(win->mlx, key_pressed, (void *)win);
+  mlx_loop_hook(win->mlx, key_pressed, (void *)win);
   // mlx_loop_hook(win->mlx, mini_map_display, (void *)win);
-  printf("here\n");
-  mlx_hook(win->mlx, 17, 0, end_window, (void *)win);
+  // mlx_hook(win->mlx, 17, 0, end_window, (void *)win);
   mlx_loop(win->mlx);
 }
 

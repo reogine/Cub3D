@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/08 13:10:24 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/09 13:39:39 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	key_pressed(int key, t_window *w)
 
 int	end_window(t_window *w)
 {
-	ft_matfreex(&w->map);
-	mlx_clear_window(w->mlx, w->win_ptr);
-	mlx_destroy_window(w->mlx, w->win_ptr);
+	 // ft_matfreex(&w->map);
+	// mlx_clear_window(w->mlx, w->win_ptr);
+	// mlx_destroy_window(w->mlx, w->win_ptr);
+  free(w->mlx);
 	exit (0);
-	return (0);
 }
