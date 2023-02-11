@@ -1,8 +1,8 @@
 /* XPM */
-static char *e84d6a7717a04410f430579c38a36e9fRZPpZ7VG5HDqIfNZ[] = {
+static char *e46fb2aeb92a4269a325e112e31d7c68w7NDFhafnsbxw0la[] = {
 /* columns rows colors chars-per-pixel */
 "38 38 1 1 ",
-"  c black",
+"  c #912654",
 /* pixels */
 "                                      ",
 "                                      ",
@@ -43,4 +43,3 @@ static char *e84d6a7717a04410f430579c38a36e9fRZPpZ7VG5HDqIfNZ[] = {
 "                                      ",
 "                                      "
 };
-

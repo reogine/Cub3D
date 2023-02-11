@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/08 13:14:36 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/09 23:55:07 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <libft.h>
 
 #define mapWidth 25
-#define mapHeight 25
+#define mapHeight 21
 #define TILESIZE 38
 /*images size*/
 # define SIZE 38
