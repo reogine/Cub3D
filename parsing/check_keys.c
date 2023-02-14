@@ -24,7 +24,7 @@ int	zero_check(t_var *var)
 			return (1);
 		else if (var->map_elmnt[var->i + 1] == NULL
 			|| var->map_elmnt[var->i + 1][var->j] <= 32
-			|| var->map_elmnt[var->i + 1][var->j] == '\0')
+			|| !var->map_elmnt[var->i + 1][var->j])
 			return (1);
 	}
 	return (0);

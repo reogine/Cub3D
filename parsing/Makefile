@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = parsing
 SRC = main.c checking_utils.c check_map.c get_next_line.c ft_split.c checking_utils2.c\
 		check_textures.c errors.c check_colors.c adjust_colors.c check_keys.c
 
