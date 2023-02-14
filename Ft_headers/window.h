@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/09 23:55:07 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/14 11:39:03 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 # include <stdlib.h>
 # include <libft.h>
 
-#define mapWidth 25
-#define mapHeight 21
-#define TILESIZE 38
+# define WIN_W 960
+# define WIN_H 540
+# define mapWidth 25
+# define mapHeight 21
+# define TILESIZE 38
 /*images size*/
 # define SIZE 38
 # define COL_STRIP 1
@@ -59,11 +61,16 @@ typedef struct s_xy
  double y;
 } t_xy;
 
-typedef struct s_tileset
+typedef struct s_2D_map
 {
-  void  *wall;
-  void  *terain;
-} t_tileset;
+  void    *img;
+  int     row;
+  int     col;
+  char    *addr;
+  int     endian;
+  int     bpp;
+  int     sizeline;
+} t_2D_map;
 
 typedef struct s_window 
 {
@@ -71,11 +78,16 @@ typedef struct s_window
   int       height;
   int       width;
   void      *mlx;
+  void      *fps;
   void      *win_ptr;
   int       x;
   int       y;
   t_ply     *ply;
-  t_tileset tileset;
+  t_2D_map  mini_map;
+  char      *addr_fps;
+  int       fps_bpp;
+  int       fps_endian;
+  int       fps_sizeline;
 } t_window;
 
 
