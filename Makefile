@@ -11,11 +11,11 @@ SRC_DIR	= code
 OBJ_DIR	= obj
 NAME		=	Cub3D 
 LIBFT		= libft/libft.a
-LIBMLX	= libmlx/libmlx.dylib
+LIBMLX	= libmlx/libmlx.a
 CC			= gcc
 CFLAGS	= -Wall -Wextra -Werror 
-# LMLX		=	-L ./libmlx -L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
-LMLX		= -L $(PWD)/libmlx -lmlx -framework OpenGL -framework  AppKit
+LMLX		=	-L ./libmlx -L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
+# LMLX		= -L $(PWD)/libmlx -lmlx -framework OpenGL -framework  AppKit
 RM			= rm -rf
 PRINTF 	= printf
 HEADERS	=	-I ./libft -I ./FT_headers  -I ./libmlx  -I /usr/X11/include 
@@ -36,7 +36,7 @@ $(LIBFT) :
 	@make all -C libft/
 
 $(LIBMLX) :
-	@make all -C libmlx/
+	@make all -C libmlx/ &> /dev/null
 
 creat_dir :
 	@mkdir -p $(OBJ_DIR)
