@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:03:20 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/14 11:40:01 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/14 13:40:50 by midfath          ###   ########.fr       */
 /*                                                                           */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ t_window *init_win()
   win->win_ptr = mlx_new_window(win->mlx, win->width, win->height, "game");
   win->map = ft_split(map, ',')/* ft_matrdupix(map) */;
   win->fps = mlx_new_image(win->mlx, win->width, win->height);
-  win->addr_fps = mlx_get_addr(win->fps, &win->fps_bpp, \
+  win->addr_fps = mlx_get_data_addr(win->fps, &win->fps_bpp, \
          &win->fps_sizeline, &win->fps_endian);
   win->mini_map.img = mlx_new_image(win->mlx, \
-         win->mini_map.row * TIlESIZE, win->mini_map.col * TIlESIZE);
-  win->mini_map.addr = mlx_get_addr(win->mini_map.img, &win->mini_map.bpp \
+         win->mini_map.row * TILESIZE, win->mini_map.col * TILESIZE);
+  win->mini_map.addr = mlx_get_data_addr(win->mini_map.img, &win->mini_map.bpp, \
          &win->mini_map.sizeline, &win->mini_map.endian);
   win->mini_map.row = ft_strlen(win->map[0]);
   win->mini_map.col = 25;

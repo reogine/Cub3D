@@ -11,14 +11,14 @@ SRC_DIR	= code
 OBJ_DIR	= obj
 NAME		=	Cub3D 
 LIBFT		= libft/libft.a
-LIBMLX	= mlx/libmlx.a
+LIBMLX	= libmlx/libmlx.dylib
 CC			= gcc
 CFLAGS	= -Wall -Wextra -Werror 
-LMLX		=	-L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
-# LMLX		= -lmlx -framework OpenGL -framework  AppKit
+# LMLX		=	-L ./libmlx -L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
+LMLX		= -L ./libmlx -lmlx -framework OpenGL -framework  AppKit
 RM			= rm -rf
 PRINTF 	= printf
-HEADERS	=	-I ./libft -I ./FT_headers/  -I /usr/X11/include -I ./mlx/ 
+HEADERS	=	-I ./libft -I ./FT_headers  -I ./libmlx  -I /usr/X11/include 
 
 SRC =	main.c map2D.c display.c\
 
@@ -36,7 +36,7 @@ $(LIBFT) :
 	@make all -C libft/
 
 $(LIBMLX) :
-	@make all -C mlx/
+	@make all -C libmlx/
 
 creat_dir :
 	@mkdir -p $(OBJ_DIR)
@@ -44,9 +44,9 @@ creat_dir :
 
 clean :
 	@make clean -C libft
-	@make clean -C	mlx 
-	@$(PRINTF) "$(PINK)Cleaning $(NAME) ... $(DEFAULT)\n"
-	@$(RM) -r $(OBJ_DIR)
+	@make clean -C	libmlx 
+	@$(PRINTF) "$(PINK)Cleaning $(LIBFT) ... $(DEFAULT)\n"
+	@$(PRINTF) "$(PINK)Cleaning $(LIBMLX) ... $(DEFAULT)\n"
 	@$(PRINTF) "$(RED) Objects_files removed successfully. $(DEFAULT)\n"
 
 fclean: clean
