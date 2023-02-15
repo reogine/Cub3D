@@ -87,19 +87,23 @@ int	ft_arealpha(char *str)
 char	*color_adjustement(t_var *var)
 {
 	char	*color;
+	char	*begin;
+	char	*end;
 
 	color = ft_strchr(var->map_elmnt[var->i], ' ');
 	if (!color)
 		return (NULL);
-	color = remove_spaces_in_begin(color);
-	if (!color)
+	begin = remove_spaces_in_begin(color);
+	if (!begin)
 		return (NULL);
-	color = remove_spaces_in_end(color);
-	if (!color)
+	end = remove_spaces_in_end(begin);
+	free (begin);
+	if (!end)
 		return (NULL);
-	if (ft_arealpha(color) == 1)
+	if (ft_arealpha(end) == 1)
 		return (NULL);
-	if (ft_strcmp(color, "") == 0)
+	if (ft_strcmp(end, "") == 0)
 		return (NULL);
-	return (color);
+	color = ft_strcpy(color, end);
+	return (end);
 }

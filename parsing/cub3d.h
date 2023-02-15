@@ -43,6 +43,7 @@ char	*ft_substr(char const *s, int start, int len);
 char	*ft_strstr(char *str, char *to_find);
 char	*remove_spaces_in_begin(char *str);
 char	*color_adjustement(t_var *var);
+char	*ft_strcpy(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
 int		ft_strcmp(const char *s1, const char *s2);
 int		check_map(t_var *var, char **argv);
