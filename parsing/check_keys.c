@@ -42,7 +42,11 @@ int	ft_check(t_var *var)
 				if (var->map_elmnt[var->i][var->j] != '1'
 					&& var->map_elmnt[var->i][var->j] != '0'
 					&& var->map_elmnt[var->i][var->j] != 'P'
-					&& var->map_elmnt[var->i][var->j] != 'N')
+					&& var->map_elmnt[var->i][var->j] != 'N'
+					&& var->map_elmnt[var->i][var->j] != 'W'
+					&& var->map_elmnt[var->i][var->j] != 'E'
+					&& var->map_elmnt[var->i][var->j] != 'N'
+					&& var->map_elmnt[var->i][var->j] != 'S')
 					return (1);
 				if (zero_check(var) == 1)
 					return (1);
