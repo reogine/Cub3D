@@ -84,9 +84,6 @@ int	ft_check(t_var *var)
 
 int	check_map_component(t_var *var)
 {
-	int	space;
-
-	space = 0;
 	var->i = 0;
 	if (var->checker == 6)
 	{
