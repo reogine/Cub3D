@@ -12,24 +12,6 @@
 
 #include"cub3d.h"
 
-int	check_key_c(t_var *var)
-{
-	int	strlen_var;
-	int	i;
-
-	strlen_var = ft_strlen(var->map_elmnt[var->i]);
-	i = 0;
-	while (i < strlen_var)
-	{
-		if (var->map_elmnt[var->i][i] == 'C')
-			break ;
-		if (var->map_elmnt[var->i][i] > 33)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 char	*remove_spaces_in_end(char *str)
 {
 	int		i;

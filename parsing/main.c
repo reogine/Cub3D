@@ -33,7 +33,11 @@ int	main(int argc, char **argv)
 	{
 		var = malloc(sizeof(t_var));
 		if (check_errors(var, argv) == 1)
+		{
+			ft_free (var);
+			free (var);
 			return (1);
+		}
 		ft_free (var);
 		free (var);
 	}

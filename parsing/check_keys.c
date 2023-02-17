@@ -12,66 +12,21 @@
 
 #include"cub3d.h"
 
-int	zero_check(t_var *var)
+int	check_key_c(t_var *var)
 {
-	if (var->map_elmnt[var->i][var->j] == '0')
-	{
-		if (var->map_elmnt[var->i - 1] == NULL
-			|| var->map_elmnt[var->i - 1][var->j] <= 32)
-			return (1);
-		else if (var->map_elmnt[var->i][var->j - 1] <= 32
-			|| var->map_elmnt[var->i][var->j + 1] <= 32)
-			return (1);
-		else if (var->map_elmnt[var->i + 1] == NULL
-			|| var->map_elmnt[var->i + 1][var->j] <= 32
-			|| !var->map_elmnt[var->i + 1][var->j])
-			return (1);
-	}
-	return (0);
-}
+	int	strlen_var;
+	int	i;
 
-int	ft_check(t_var *var)
-{
-	while (var->map_elmnt[var->i])
+	strlen_var = ft_strlen(var->map_elmnt[var->i]);
+	i = 0;
+	while (i < strlen_var)
 	{
-		var->j = 0;
-		while (var->map_elmnt[var->i][var->j])
-		{
-			if (var->map_elmnt[var->i][var->j] >= 48)
-			{
-				if (var->map_elmnt[var->i][var->j] != '1'
-					&& var->map_elmnt[var->i][var->j] != '0'
-					&& var->map_elmnt[var->i][var->j] != 'P'
-					&& var->map_elmnt[var->i][var->j] != 'N'
-					&& var->map_elmnt[var->i][var->j] != 'W'
-					&& var->map_elmnt[var->i][var->j] != 'E'
-					&& var->map_elmnt[var->i][var->j] != 'N'
-					&& var->map_elmnt[var->i][var->j] != 'S')
-					return (1);
-				if (zero_check(var) == 1)
-					return (1);
-			}
-			var->j++;
-		}
-		var->i++;
-	}
-	return (0);
-}
-
-int	check_map_component(t_var *var)
-{
-	int	space;
-
-	space = 0;
-	var->i = 0;
-	if (var->checker == 6)
-	{
-		var->i = var->checker;
-		if (ft_check(var) == 1)
+		if (var->map_elmnt[var->i][i] == 'C')
+			break ;
+		if (var->map_elmnt[var->i][i] > 33)
 			return (1);
+		i++;
 	}
-	else
-		return (1);
 	return (0);
 }
 
