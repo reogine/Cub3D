@@ -21,12 +21,10 @@ int	pos_check(t_var *var)
 		|| var->map_elmnt[var->i][var->j] == '0')
 	{
 		if (var->map_elmnt[var->i - 1] == NULL
-			|| var->map_elmnt[var->i - 1][var->j] <= 32)
-			return (1);
-		else if (var->map_elmnt[var->i][var->j - 1] <= 32
-			|| var->map_elmnt[var->i][var->j + 1] <= 32)
-			return (1);
-		else if (var->map_elmnt[var->i + 1] == NULL
+			|| var->map_elmnt[var->i - 1][var->j] <= 32
+			|| var->map_elmnt[var->i][var->j - 1] <= 32
+			|| var->map_elmnt[var->i][var->j + 1] <= 32
+			|| var->map_elmnt[var->i + 1] == NULL
 			|| var->map_elmnt[var->i + 1][var->j] <= 32
 			|| !var->map_elmnt[var->i + 1][var->j])
 			return (1);

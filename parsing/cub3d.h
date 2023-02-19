@@ -22,6 +22,10 @@ typedef struct s_var
 {
 	int		i;
 	int		j;
+	int		s;
+	int		n;
+	int		e;
+	int		w;
 	int		checker;
 	int		fd_map;
 	char	*map;
@@ -52,6 +56,7 @@ int		valid_map_is_valid(t_var *var);
 int		ft_strlen(const char *str);
 int		check_spaces(char *str);
 int		check_errors(t_var *var, char **argv);
+int		check_errors2(t_var *var, char **argv);
 int		check_texture(t_var *var);
 int		ft_atoi(const char *str);
 int		check_colors(t_var *var);
@@ -62,5 +67,6 @@ int		check_key_c(t_var *var);
 int		check_values(t_var *var);
 int		check_key_f(t_var *var);
 int		check_map_component(t_var *var);
+int		check_numberof_element(t_var *var);
 
 #endif

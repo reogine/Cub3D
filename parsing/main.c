@@ -32,17 +32,14 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		var = malloc(sizeof(t_var));
-		if (check_errors(var, argv) == 1)
+		if (check_errors2(var, argv) == 1)
 			return (1);
-		var->map_elmnt = var->map_elmnt + 6;
-		//statrt execution in here
+		//start execution here ^_^
 		var->map_elmnt = var->map_elmnt - 6;
 		ft_free (var);
 		free (var);
 	}
 	else
 		ft_putstr("programe accepet programe name + map path\n", 2);
-	while (1)
-		;
 	return (0);
 }
