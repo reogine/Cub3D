@@ -6,7 +6,7 @@
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 21:27:03 by aomman            #+#    #+#             */
-/*   Updated: 2023/02/07 14:06:21 by aomman           ###   ########.fr       */
+/*   Updated: 2023/02/20 21:46:29 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"cub3d.h"
@@ -25,7 +25,7 @@ void	ft_free(t_var *var)
 	free (var->map_elmnt);
 }
 
-int	main(int argc, char **argv)
+int	func(int argc, char **argv)
 {
 	t_var	*var;
 
@@ -35,11 +35,22 @@ int	main(int argc, char **argv)
 		if (check_errors2(var, argv) == 1)
 			return (1);
 		//start execution here ^_^
+		ft_find_position(var);
 		var->map_elmnt = var->map_elmnt - 6;
 		ft_free (var);
 		free (var);
 	}
 	else
+	{
 		ft_putstr("programe accepet programe name + map path\n", 2);
+		return (1);
+	}
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	if (func(argc, argv) == 1)
+		return (1);
 	return (0);
 }

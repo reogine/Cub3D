@@ -20,6 +20,10 @@
 
 typedef struct s_var
 {
+	void	*wall;
+	void	*floor;
+	int		posx;
+	int		posy;
 	int		i;
 	int		j;
 	int		s;
@@ -40,6 +44,7 @@ typedef struct s_var
 
 void	ft_putstr(char *str, int fd);
 void	paths_valid(t_var *var);
+void	ft_find_position(t_var *var);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*get_next_line(int fd);
