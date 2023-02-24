@@ -20,7 +20,7 @@ RM			= rm -rf
 PRINTF 	= printf
 HEADERS	=	-I ./libft -I ./FT_headers  -I ./libmlx  -I /usr/X11/include 
 
-SRC =	main.c map2D.c display.c\
+SRC =	main.c map2D.c display.c display_utils.c player.c raycasting.c\
 
 OBJ = $(addprefix $(SRC_DIR)/, $(SRC))
 

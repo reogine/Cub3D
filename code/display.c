@@ -3,19 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/12 18:31:47 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:33:17 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <window.h>
 
-void	ft_put_img(t_window *w, void *img, int x, int y)
+void	render_frame(t_window *w)
 {
-	mlx_put_image_to_window(w->mlx, w->win_ptr,
-		img, (x * 38), (y * 38));
+  rays_casting(w);
+  render_minimap(w); 
+}
+
+void  open_window(t_window  *win)
+{
+  render_frame(win);
+  mlx_put_image_to_window(win->mlx, win->win_ptr, win->fps, 0, 0);
+//   mlx_loop_hook(win->mlx, key_pressed, (void *)win);
+  // mlx_hook(win->mlx, 17, 0, end_window, win);
+  mlx_loop(win->mlx);
 }
 
 int	key_pressed(int key, t_window *w)
@@ -36,9 +45,10 @@ int	key_pressed(int key, t_window *w)
 
 int	end_window(t_window *w)
 {
-	 // ft_matfreex(&w->map);
-	// mlx_clear_window(w->mlx, w->win_ptr);
-	// mlx_destroy_window(w->mlx, w->win_ptr);
-  free(w->mlx);
+	 // ft_matfreex(&win->map);
+	// mlx_destroy_window(win->mlx, win->win_ptr);
+  // free(win->mlx);
+	if (w)	
 	exit (0);
+	return 0;
 }
