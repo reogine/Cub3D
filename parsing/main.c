@@ -52,5 +52,6 @@ int	main(int argc, char **argv)
 {
 	if (func(argc, argv) == 1)
 		return (1);
+	while (1);
 	return (0);
 }

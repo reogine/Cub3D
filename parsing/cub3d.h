@@ -17,6 +17,7 @@
 # include<unistd.h>
 # include<stdio.h>
 # include<stdlib.h>
+# include<string.h>
 
 typedef struct s_var
 {
@@ -53,6 +54,7 @@ char	*ft_strstr(char *str, char *to_find);
 char	*remove_spaces_in_begin(char *str);
 char	*color_adjustement(t_var *var);
 char	*ft_strcpy(char *s1, char *s2);
+char	*skip_spaces(char *str);
 char	**ft_split(char const *s, char c);
 int		ft_strcmp(const char *s1, const char *s2);
 int		check_map(t_var *var, char **argv);
@@ -73,5 +75,6 @@ int		check_values(t_var *var);
 int		check_key_f(t_var *var);
 int		check_map_component(t_var *var);
 int		check_numberof_element(t_var *var);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

@@ -43,39 +43,72 @@ int	check_map(t_var *var, char **argv)
 
 int	check_so_no(char *str, t_var *var)
 {
-	if (ft_strstr(var->map_elmnt[var->i], "SO") != NULL)
+	char	*so;
+	char	*no;
+
+	so = ft_strstr(var->map_elmnt[var->i], "SO");
+	if (so != NULL)
 	{
+		so = skip_spaces(var->map_elmnt[var->i]);
+		if (ft_strncmp(so, "SO", 2) != 0)
+			return (1);
+		free (so);
 		str = ft_strstr(var->map_elmnt[var->i], "SO");
 		var->path_so = ft_strchr(str, '.');
 	}
-	if (ft_strstr(var->map_elmnt[var->i], "NO") != NULL)
+	no = ft_strstr(var->map_elmnt[var->i], "NO");
+	if (no != NULL)
 	{
+		no = skip_spaces(var->map_elmnt[var->i]);
+		if (ft_strncmp(no, "NO", 2) != 0)
+			return (1);
+		free (no);
 		str = ft_strstr(var->map_elmnt[var->i], "NO");
 		var->path_no = ft_strchr(str, '.');
 	}
 	return (0);
 }
 
-void	check_ea_we(char *str, t_var *var)
+int	check_ea_we(char *str, t_var *var)
 {
-	if (ft_strstr(var->map_elmnt[var->i], "EA") != NULL)
+	char	*ea;
+	char	*we;
+
+	ea = ft_strstr(var->map_elmnt[var->i], "EA");
+	if (ea != NULL)
 	{
+		ea = skip_spaces(var->map_elmnt[var->i]);
+		if (ft_strncmp(ea, "EA", 2) != 0)
+			return (1);
+		free (ea);
 		str = ft_strstr(var->map_elmnt[var->i], "EA");
 		var->path_ea = ft_strchr(str, '.');
 	}
-	if (ft_strstr(var->map_elmnt[var->i], "WE") != NULL)
+	we = ft_strstr(var->map_elmnt[var->i], "WE");
+	if (we != NULL)
 	{
+		we = skip_spaces(var->map_elmnt[var->i]);
+		if (ft_strncmp(we, "WE", 2) != 0)
+			return (1);
+		free (we);
 		str = ft_strstr(var->map_elmnt[var->i], "WE");
 		var->path_we = ft_strchr(str, '.');
 	}
+	return (0);
 }
 
 char	*chaeck_xpm(char *str, t_var *var)
 {
 	if (!str || ft_strcmp(str, ".xpm") != 0)
 		return (NULL);
-	check_so_no(str, var);
-	check_ea_we(str, var);
+	if (check_so_no(str, var) == 1)
+	{
+		return (NULL);
+	}
+	if (check_ea_we(str, var) == 1)
+	{
+		return (NULL);
+	}
 	return (str);
 }
 
