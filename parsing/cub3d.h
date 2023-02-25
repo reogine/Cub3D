@@ -6,7 +6,7 @@
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 18:43:25 by aomman            #+#    #+#             */
-/*   Updated: 2023/02/05 18:43:27 by aomman           ###   ########.fr       */
+/*   Updated: 2023/02/25 21:04:39 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@
 # include<stdio.h>
 # include<stdlib.h>
 # include<string.h>
+# include<math.h>
+
+# define WIN_W 960
+# define WIN_H 540
+# define P 3.14159265359
+# define TILESIZE 32
+# define MINIMAP_FACTOR 1
+# define MAP_TILESIZE TILESIZE / MINIMAP_FACTOR
+# define MAP_GRIDE_FACTOR WIN_W / (double) MINIMAP_FACTOR
+# define COL_STRIP 1
+# define SCALE (MAP_GRIDE_FACTOR / (double) WIN_W)
+# define FOV 120
 
 typedef struct s_var
 {
@@ -43,9 +55,46 @@ typedef struct s_var
 	int		*c_colors;
 }	t_var;
 
+typedef struct s_ray
+{
+	double	hit_x;
+	double	hit_y;
+	int		closest_grid_x;
+	int		closest_grid_y;
+	double	angle;
+	int		face_up;
+	int		face_left;
+	double	distance;
+	int		projwall;
+	int		wallstriphoehjt;
+	int		windowsheight;
+	int		is_horizontal;
+}	t_ray;
+
+typedef struct s_window
+{
+  char      **map;
+  int       height;
+  int       width;
+  void      *mlx;
+  void      *fps;
+  void      *win_ptr;
+  int       x;
+  int       y;
+  //t_ply     ply;
+  //t_2D_map  mini_map;
+  char      *addr_fps;
+  int       fps_bpp;
+  int       fps_endian;
+  int       fps_sizeline;
+  t_ray     rays[WIN_W];
+} t_window;
+
+
 void	ft_putstr(char *str, int fd);
 void	paths_valid(t_var *var);
 void	ft_find_position(t_var *var);
+void	ft_draw_walls();
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*get_next_line(int fd);

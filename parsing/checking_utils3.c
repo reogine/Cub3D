@@ -12,6 +12,22 @@
 
 #include"cub3d.h"
 
+char	*skip_spaces(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] <= 32)
+			i++;
+		else
+			break ;
+	}
+	str = ft_substr(str, i, ft_strlen(str));
+	return (str);
+}
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*_s1;

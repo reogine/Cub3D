@@ -6,7 +6,7 @@
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 21:27:03 by aomman            #+#    #+#             */
-/*   Updated: 2023/02/20 21:46:29 by aomman           ###   ########.fr       */
+/*   Updated: 2023/02/25 15:11:23 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"cub3d.h"
@@ -34,8 +34,9 @@ int	func(int argc, char **argv)
 		var = malloc(sizeof(t_var));
 		if (check_errors2(var, argv) == 1)
 			return (1);
-		//start execution here ^_^
 		ft_find_position(var);
+		// execution from here
+		ft_draw_walls();
 		var->map_elmnt = var->map_elmnt - 6;
 		ft_free (var);
 		free (var);

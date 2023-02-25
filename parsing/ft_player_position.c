@@ -12,22 +12,6 @@
 
 #include"cub3d.h"
 
-char	*skip_spaces(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] <= 32)
-			i++;
-		else
-			break ;
-	}
-	str = ft_substr(str, i, ft_strlen(str));
-	return (str);
-}
-
 void	ft_find_position(t_var *var)
 {
 	var->i = 0;
