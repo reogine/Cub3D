@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/24 17:33:17 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/27 16:57:30 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	render_frame(t_window *w)
 {
-  rays_casting(w);
+  rays_calc(w);
   render_minimap(w); 
 }
 

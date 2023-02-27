@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/24 16:53:34 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/27 16:33:30 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <libft.h>
 # include <math.h>
 
+# define FOV 60
 # define WIN_W 960
 # define WIN_H 540
 # define P 3.14159265359
@@ -45,15 +46,15 @@
 
 typedef struct s_ray
 {
-	double hit_x;             // x-coordinate of the point where the ray hit a wall
-	double hit_y;             // y-coordinate of the point where the ray hit a wall
-	int closest_grid_x;       // x-coordinate of the closest grid intersection
-	int closest_grid_y;       // y-coordinate of the closest grid intersection
-	double angle;             // angle of the ray (in radians)
-	int face_up;              // flag indicating if the ray is facing up
-	int face_left;            // flag indicating if the ray is facing left
-	double distance;          // distance from the player to the wall hit by the ray
-	int is_horizontal;        // flag indicating if the ray is horizontal
+	double  hit_x;             // x-coordinate of the point where the ray hit a wall
+	double  hit_y;             // y-coordinate of the point where the ray hit a wall
+	int     closest_grid_x;       // x-coordinate of the closest grid intersection
+	int     closest_grid_y;       // y-coordinate of the closest grid intersection
+	double  angle;             // angle of the ray (in radians)
+	int     face_up;              // flag indicating if the ray is facing up
+	int     face_left;            // flag indicating if the ray is facing left
+	double  distance;          // distance from the player to the wall hit by the ray
+	int     is_horizontal;        // flag indicating if the ray is horizontal
 } t_ray;
 
 typedef struct s_texs
@@ -73,6 +74,13 @@ typedef struct s_ply
   double  rot_ang;
   
 } t_ply;
+
+typedef struct s_dou_xy
+{
+ int x;
+ int y;
+} t_dou_xy;
+
 
 typedef struct s_xy
 {
@@ -127,6 +135,11 @@ void      ft_pxl_strip(t_window *w, t_xy str, t_xy end, int clr);
 void      ft_pxl_block(t_window *w, t_xy cordo, int clr);
 int       get_pxl_minimap(t_window *win, int x, int y);
 void      rays_display(t_window *win);
+void      ray_hit(t_window  *win, double rot_ang, int indx);
+void      rays_calc(t_window *win);
+t_dou_xy  find_hit_point(t_window *win,t_ray *ray, int is_hor);
+void      calc_hor_line(t_window *win, t_dou_xy *hit, t_ray *ray);
+void      calc_ver_line(t_window *win, t_dou_xy *hit, t_ray *ray);
 
 /* Player */
 void      init_ply(t_window *win);
