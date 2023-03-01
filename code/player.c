@@ -41,7 +41,7 @@ void  ft_go_up(int key, t_window *w)
 void  get_ply_cordo(t_window *win, t_xy cordo) {
   win->ply.x = (cordo.x * TILESIZE) + TILESIZE / 2;
   win->ply.y = (cordo.y * TILESIZE) + TILESIZE / 2; 
-  win->ply.rot_ang = P / 2;
+  win->ply.rot_ang = (3 * P) / 2;
 }
 
 void init_ply(t_window *win)

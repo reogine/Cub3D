@@ -12,36 +12,36 @@
 
 #include"cub3d.h"
 
-int	ft_strlen(const char *str)
-{
-	int	i;
+// int	ft_strlen(const char *str)
+// {
+// 	int	i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (str[i])
+// 		i++;
+// 	return (i);
+// }
 
-char	*ft_strdup(char *s1)
-{
-	int		i;
-	char	*s2;
+// char	*ft_strdup(char *s1)
+// {
+// 	int		i;
+// 	char	*s2;
 
-	i = 0;
-	while (s1[i])
-		i++;
-	s2 = malloc((sizeof(char) * i + 1));
-	if (!s2)
-		return (NULL);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		s2[i] = s1[i];
-		i++;
-	}
-	s2[i] = '\0';
-	return (s2);
-}
+// 	i = 0;
+// 	while (s1[i])
+// 		i++;
+// 	s2 = malloc((sizeof(char) * i + 1));
+// 	if (!s2)
+// 		return (NULL);
+// 	i = 0;
+// 	while (s1[i] != '\0')
+// 	{
+// 		s2[i] = s1[i];
+// 		i++;
+// 	}
+// 	s2[i] = '\0';
+// 	return (s2);
+// }
 
 char	*ft_strjoin(char *s, char c)
 {

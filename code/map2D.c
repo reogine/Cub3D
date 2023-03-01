@@ -86,7 +86,7 @@ t_window *init_win()
   win->mlx = mlx_init();
   win->height = WIN_H; 
   win->width = WIN_W;
-  win->map = ft_split(map, ',')/* ft_matrdupix(map) */;
+  win->map = ft_split(map, ',')/* ft_matrdupix(var->map_elmnt) */;
   win->mini_map.row = ft_strlen(win->map[0]);
   win->mini_map.col = 27;
   win->win_ptr = mlx_new_window(win->mlx, win->width, win->height, "game");

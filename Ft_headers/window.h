@@ -47,16 +47,19 @@
 
 typedef struct s_ray
 {
-	double  hit_x;             // x-coordinate of the point where the ray hit a wall
-	double  hit_y;             // y-coordinate of the point where the ray hit a wall
-	int     closest_grid_x;       // x-coordinate of the closest grid intersection
-	int     closest_grid_y;       // y-coordinate of the closest grid intersection
-	double  angle;             // angle of the ray (in radians)
-	int     face_up;              // flag indicating if the ray is facing up
-	int     face_left;            // flag indicating if the ray is facing left
-	double  distance;          // distance from the player to the wall hit by the ray
-	int     is_horizontal;        // flag indicating if the ray is horizontal
-} t_ray;
+	double	hit_x;
+	double	hit_y;
+	int		closest_grid_x;
+	int		closest_grid_y;
+	double	angle;
+	int		face_up;
+	int		face_left;
+	double	distance;
+	int		projwall;
+	int		wallstriphiehgt;
+	int		windowsheight;
+	int		is_horizontal;
+}	t_ray;
 
 typedef struct s_texs
 {
@@ -119,18 +122,15 @@ typedef struct s_window
   t_ray     rays[WIN_W];
 } t_window;
 
-
 t_window  *init_win();
 void      open_window(t_window  *win);
 void      mini_map_overlay(t_window *win);
 void      mini_map_display(t_window *win);
 void    	render_frame(t_window *w);
 void      render_minimap(t_window *w);
-void    	ft_assign_tiles(t_window *w);
 void      init_tx();
 int	      trigger_key(int key, t_window *w);
 int       end_window(t_window *w);
-void	    ft_mapping(t_window *w, int i, int j);
 void      ft_pxl_cub(t_window *w, int x, int y, int clr);
 void      ft_pxl(t_window *w, int x, int y, int clr);
 void      ft_pxl_line(t_window *w, t_xy str, t_xy end, int clr);

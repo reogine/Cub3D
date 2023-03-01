@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 #include <window.h>
+#include "parsing/cub3d.h"
 
 void	render_frame(t_window *w)
 {
   rays_calc(w);
+  ft_draw_walls(w);
   render_minimap(w); 
 }
 
