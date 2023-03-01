@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 17:19:26 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/01 18:58:23 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void  open_window(t_window  *win)
 
 int	trigger_key(int key, t_window *win)
 {
-  // if (key == KEY_UP)
-		// ft_go_up(key, win);
+  if (key == KEY_W)
+		ft_go_up(key, win);
 	// else if (key == KEY_S || key == KEY_DOWN) 
 		// ft_go_down(w);
 	// else if (key == KEY_A 

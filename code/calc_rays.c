@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 21:35:11 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 04:01:01 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/01 18:42:50 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void  calc_ver_line(t_window *win, t_dou_xy *hit, t_ray *ray)
     && (int)floor(hit->y / TILESIZE) < win->mini_map.col
     && (int)floor(hit->x / TILESIZE) < win->mini_map.row)
   {
-    if(!ray->face_up && win->map[(int)floor(hit->y / TILESIZE)]
+    if(!ray->face_left && win->map[(int)floor(hit->y / TILESIZE)]
       [(int)floor(hit->x / TILESIZE)] == '1')
         break ;
     else if (ray->face_left && win->map[(int)floor(hit->y / TILESIZE)]
@@ -40,15 +40,16 @@ void  calc_hor_line(t_window *win, t_dou_xy *hit, t_ray *ray)
     && (int)floor(hit->y / TILESIZE) < win->mini_map.col
     && (int)floor(hit->x / TILESIZE) < win->mini_map.row)
   {
-    if (!ray->face_up && win->map[(int)floor((hit->y / TILESIZE))]
+    if (!ray->face_up && win->map[(int)floor(hit->y / TILESIZE)]
       [(int)floor(hit->x / TILESIZE)] == '1')
         break ;
-    else if (ray->face_up && win->map[(int)floor(hit->y / TILESIZE) - 1]
+    else if (ray->face_up && win->map[(int)floor((hit->y / TILESIZE)) - 1]
         [(int)floor(hit->x / TILESIZE)] == '1')
           break ;
     if (!ray->face_up)
       hit->y += TILESIZE;
-    else hit->y -= TILESIZE;
+    else
+      hit->y -= TILESIZE;
     hit->x = win->ply.x + (hit->y - win->ply.y) / tan(ray->angle);
   }
 }
