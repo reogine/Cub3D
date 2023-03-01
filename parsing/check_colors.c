@@ -97,15 +97,28 @@ int	check_sky_color(t_var *var)
 
 int	check_colors(t_var *var)
 {
+	char	*f;
+	char	*c;
+
 	var->i = 0;
 	while (var->map_elmnt[var->i])
 	{
-		if (ft_strstr(var->map_elmnt[var->i], "F") != NULL)
+		f = ft_strstr(var->map_elmnt[var->i], "F");
+		if (f != NULL)
+		{
+			free (var->map_elmnt[var->i]);
+			var->map_elmnt[var->i] = remove_spaces_in_begin(f);
 			if (check_floor_color(var) == 1)
 				return (1);
-		if (ft_strstr(var->map_elmnt[var->i], "C") != NULL )
+		}
+		c = ft_strstr(var->map_elmnt[var->i], "C");
+		if (c != NULL )
+		{
+			free (var->map_elmnt[var->i]);
+			var->map_elmnt[var->i] = remove_spaces_in_begin(c);
 			if (check_sky_color(var) == 1)
 				return (1);
+		}
 		var->i++;
 	}
 	return (0);

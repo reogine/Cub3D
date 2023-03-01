@@ -102,13 +102,9 @@ char	*chaeck_xpm(char *str, t_var *var)
 	if (!str || ft_strcmp(str, ".xpm") != 0)
 		return (NULL);
 	if (check_so_no(str, var) == 1)
-	{
 		return (NULL);
-	}
 	if (check_ea_we(str, var) == 1)
-	{
 		return (NULL);
-	}
 	return (str);
 }
 

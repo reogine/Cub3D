@@ -6,7 +6,7 @@
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 21:27:03 by aomman            #+#    #+#             */
-/*   Updated: 2023/02/25 15:11:23 by aomman           ###   ########.fr       */
+/*   Updated: 2023/02/28 21:18:52 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"cub3d.h"
@@ -35,7 +35,9 @@ int	func(int argc, char **argv)
 		if (check_errors2(var, argv) == 1)
 			return (1);
 		ft_find_position(var);
-		// execution from here
+		printf("%d\n", var->f_colors[0]);
+		printf("%d\n", var->f_colors[1]);
+		printf("%d\n", var->f_colors[2]);
 		ft_draw_walls();
 		var->map_elmnt = var->map_elmnt - 6;
 		ft_free (var);
@@ -53,5 +55,6 @@ int	main(int argc, char **argv)
 {
 	if (func(argc, argv) == 1)
 		return (1);
+	system("leaks parsing");
 	return (0);
 }

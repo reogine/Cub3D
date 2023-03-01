@@ -34,6 +34,8 @@
 typedef struct s_var
 {
 	void	*wall;
+	void	*mlx_win;
+	void	*mlx;
 	void	*floor;
 	int		posx;
 	int		posy;
@@ -43,16 +45,20 @@ typedef struct s_var
 	int		n;
 	int		e;
 	int		w;
+	int		offset;
+	int		top_p;
+	int		down_p;
 	int		checker;
 	int		fd_map;
+	int		dst;
 	char	*map;
 	char	**map_elmnt;
 	char	*path_so;
 	char	*path_no;
 	char	*path_ea;
 	char	*path_we;
-	int		*f_colors;
 	int		*c_colors;
+	int		*f_colors;
 }	t_var;
 
 typedef struct s_ray
@@ -66,7 +72,7 @@ typedef struct s_ray
 	int		face_left;
 	double	distance;
 	int		projwall;
-	int		wallstriphoehjt;
+	int		wallstriphiehgt;
 	int		windowsheight;
 	int		is_horizontal;
 }	t_ray;
@@ -89,6 +95,15 @@ typedef struct s_window
   int       fps_sizeline;
   t_ray     rays[WIN_W];
 } t_window;
+
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_data;
 
 
 void	ft_putstr(char *str, int fd);
