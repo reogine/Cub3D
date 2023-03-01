@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 22:40:11 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/27 16:56:20 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/01 17:20:08 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ void  rays_calc(t_window *win)
 
   ang = win->ply.rot_ang - (FOV * ( P / 180)) / 2;
   r = 0;
-  while (r < win->width)
+  while (r < WIN_W)
   {
     if (ang < 0)
-      ang = ang + 2 * P;
-    else if (ang > 2 * P)
-      ang = ang - 2 * P;
+      ang += 2 * P;
+    else if (ang >= 2 * P)
+      ang -= 2 * P;
+    // printf("%f degree\n",  ang);
     ray_hit(win, ang, r);
     ang += (FOV * (P / 180)) / WIN_W;
     r++;
@@ -65,6 +66,26 @@ void  rays_calc(t_window *win)
 
 void  rays_display(t_window *win)
 {
-  if (win)
-    return ;
+  t_xy  str;
+  t_xy  end;
+  int   i;
+
+  i = 0;
+  while (i < WIN_W)
+  {
+    str.x = win->ply.x * SCALE;
+    str.y = win->ply.y * SCALE;
+    if (win->rays[i].distance > 160)
+    {
+      end.x = (win->ply.x + cos(win->rays[i].angle) * 160) * SCALE;
+      end.y = (win->ply.y + sin(win->rays[i].angle) * 160) * SCALE;
+    }
+    else
+    {
+      end.x = win->rays[i].hit_x * SCALE;  
+      end.y = win->rays[i].hit_y * SCALE;
+    }
+  // printf("lol %d\n", str.x);
+    ft_pxl_line(win, str, end, 0xf5f5dc); i++;
+  }
 }

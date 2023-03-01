@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:03:20 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/24 17:23:03 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/01 02:50:00 by midfath          ###   ########.fr       */
 /*                                                                           */
 /* ************************************************************************** */
 
@@ -26,16 +26,18 @@ void  mini_map_overlay(t_window *win)
   t_xy  str;
   int   clr;
 
-  str.x = win->ply.x - 100;
-  str.y = win->ply.y - 100;
+  str.x = win->ply.x - 150;
+  str.y = win->ply.y - 150;
   cordo.y = 0;
   cordo.x = 0;
-  while (cordo.y < 200)
+  while (cordo.y < 300)
   {
     clr = get_pxl_minimap(win, str.x + cordo.x, str.y + cordo.y);
-    ft_pxl_cub(win, cordo.x, cordo.y - 24, clr); 
+    if (clr <= 0)
+      clr =  0x101541;
+    ft_pxl_cub(win, cordo.x + WIN_W - 300, cordo.y, clr); 
     cordo.x++;
-    if (cordo.x == 200)
+    if (cordo.x == 300)
     {
       cordo.x = 0;
       cordo.y++;
@@ -49,11 +51,11 @@ t_window *init_win()
 
   char  map[]="11111111111111111111111111,\
 10000100000000000000000001,\
-10000100000S00000000000001,\
-10    10000000000000000001,\
-10    10000000000000000001,\
-10    11111100000000000001,\
 10000100000000000000000001,\
+100W0010000000000000000001,\
+10000010000000000000000001,\
+10000011111100000000000001,\
+10000000000000000000000001,\
 10000100000000000000000001,\
 10000100000000000000000001,\
 10000000000000000000000001,\
@@ -118,7 +120,7 @@ void  mini_map_display(t_window *win)
       (int)(win->ply.x / TILESIZE) + 10)
     {
       if (win->map[cordo.y][cordo.x] == '1')
-        ft_pxl_block(win, cordo, 0x7F0000);
+        ft_pxl_block(win, cordo, 0x444444);
       else if (ft_strchr("0NSWE",win->map[cordo.y][cordo.x]))
         ft_pxl_block(win, cordo, 0x7B7C7D);
       cordo.x++;

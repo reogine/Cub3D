@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:11:24 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/23 01:40:12 by midfath          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:41:03 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int   get_pxl_minimap(t_window *win, int x, int y)
   offset = y * win->mini_map.sizeline + x * bit_per_pxl;
   if (x >= win->mini_map.row * TILESIZE \
     || y >= win->mini_map.col * TILESIZE)
-    return (0xf5f5dc);
+    return (-1);
   else
     return (*(int *)(win->mini_map.addr + offset));
 }
@@ -51,26 +51,24 @@ void ft_pxl_cub(t_window *w, int x, int y, int clr)
   *(int *)cordo_addr = clr;
 }
 
-void  ft_pxl_strip(t_window *w, t_xy str, t_xy end, int clr)
+void  ft_pxl_line(t_window *w, t_xy str, t_xy end, int clr)
 {
-  t_xy    delta;
-  double  pxline_len;
-  t_xy    step;
-  t_xy    current;
-  delta.x = end.x - str.x;
-  delta.y = end.y - str.y;
-  pxline_len = sqrt(delta.x * delta.x + delta.y * delta.y);
-  step.x = delta.x / pxline_len;
-  step.y = delta.y / pxline_len;
-  current = str;
-  while (pxline_len > 0)
-  { 
-    ft_pxl(w, current.x, current.y, clr);
-    current.x += (int)round(step.x);
-    current.y += (int)round(step.y); 
-    pxline_len -= 1;
+  t_dou_xy  mid;
+  t_dou_xy  dou_mid;
+  double    pxline_len;
+
+  mid.x = 0;
+  mid.y = 0;
+  pxline_len = sqrt(pow(end.x - str.x ,2) + pow(end.y - str.y, 2));
+  dou_mid.x = (end.x - str.x) / pxline_len;
+  dou_mid.y = (end.y - str.y) / pxline_len;
+  while (pxline_len-- > 0)
+  {
+    ft_pxl(w, str.x + mid.x, str.y + mid.y, clr);
+    // printf("here:%f\n", dou_mid.x);
+    mid.x += dou_mid.x;
+    mid.y += dou_mid.y;
   }
-  ft_pxl(w, end.x, end.y, clr);
 }
 
 void  ft_pxl_block(t_window *w, t_xy cordo, int clr)

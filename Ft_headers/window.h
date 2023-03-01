@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/27 16:33:30 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/01 17:06:12 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <libft.h>
 # include <math.h>
 
+# define PPM 10
 # define FOV 60
-# define WIN_W 960
-# define WIN_H 540
+# define WIN_W 1280
+# define WIN_H 720
 # define P 3.14159265359
 # define TILESIZE 32
 # define MINIMAP_FACTOR 1
@@ -77,8 +78,8 @@ typedef struct s_ply
 
 typedef struct s_dou_xy
 {
- int x;
- int y;
+ double x;
+ double y;
 } t_dou_xy;
 
 
@@ -127,11 +128,12 @@ void    	render_frame(t_window *w);
 void      render_minimap(t_window *w);
 void    	ft_assign_tiles(t_window *w);
 void      init_tx();
+int	      trigger_key(int key, t_window *w);
 int       end_window(t_window *w);
 void	    ft_mapping(t_window *w, int i, int j);
 void      ft_pxl_cub(t_window *w, int x, int y, int clr);
 void      ft_pxl(t_window *w, int x, int y, int clr);
-void      ft_pxl_strip(t_window *w, t_xy str, t_xy end, int clr);
+void      ft_pxl_line(t_window *w, t_xy str, t_xy end, int clr);
 void      ft_pxl_block(t_window *w, t_xy cordo, int clr);
 int       get_pxl_minimap(t_window *win, int x, int y);
 void      rays_display(t_window *win);
@@ -145,5 +147,6 @@ void      calc_ver_line(t_window *win, t_dou_xy *hit, t_ray *ray);
 void      init_ply(t_window *win);
 void      get_ply_cordo(t_window *win, t_xy cordo);
 void      ply_display(t_window *win);
+void  ft_go_up(int key, t_window *w);
 
 #endif // !WINDOW_H

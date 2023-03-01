@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/27 16:57:30 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/01 17:19:26 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,31 @@ void	render_frame(t_window *w)
 void  open_window(t_window  *win)
 {
   render_frame(win);
-  mlx_put_image_to_window(win->mlx, win->win_ptr, win->fps, 0, 0);
-//   mlx_loop_hook(win->mlx, key_pressed, (void *)win);
-  // mlx_hook(win->mlx, 17, 0, end_window, win);
+  mlx_put_image_to_window(win->mlx, win->win_ptr, win->fps, 0, 0); //   mlx_loop_hook(win->mlx, key_pressed, (void *)win);
+  mlx_hook(win->win_ptr, 17, 0, end_window, win);
+  mlx_hook(win->win_ptr, 2, 0, trigger_key, win);
   mlx_loop(win->mlx);
 }
 
-int	key_pressed(int key, t_window *w)
+int	trigger_key(int key, t_window *win)
 {
-	// if ((key == KEY_W || key == KEY_UP)) 
-		// ft_go_up(w);
+  // if (key == KEY_UP)
+		// ft_go_up(key, win);
 	// else if (key == KEY_S || key == KEY_DOWN) 
 		// ft_go_down(w);
-	// else if (key == KEY_A || key == KEY_LEFT)
+	// else if (key == KEY_A 
+  if (key == KEY_RIGHT)
+    win->ply.rot_ang += 4 * (P / 180);
+  else if (key == KEY_LEFT)
+    win->ply.rot_ang -= 4 * (P / 180);
 		// ft_go_right(w);
 	// else if (key == KEY_D || key == KEY_RIGHT)
 		// ft_go_left(w);
+  rays_calc(win);
+  render_minimap(win); 
+  mlx_put_image_to_window(win->mlx, win->win_ptr, win->fps, 0, 0); //   mlx_loop_hook(win->mlx, key_pressed, (void *)win);
 	if (key == KEY_ESC)
-		end_window(w);
+		exit (0);
 	return (0);
 }
 
@@ -48,7 +55,6 @@ int	end_window(t_window *w)
 	 // ft_matfreex(&win->map);
 	// mlx_destroy_window(win->mlx, win->win_ptr);
   // free(win->mlx);
-	if (w)	
+	(void) w;	
 	exit (0);
-	return 0;
 }
