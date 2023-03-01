@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 21:35:11 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 18:42:50 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/01 20:46:48 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_dou_xy   find_hit_point(t_window *win,t_ray *ray, int is_hor)
   {
     hit.x = floor(win->ply.x / TILESIZE) * TILESIZE;
     if (!ray->face_left)
-      hit.y += TILESIZE;
+      hit.x += TILESIZE;
     hit.y = win->ply.y + (hit.x - win->ply.x) * tan(ray->angle);
     calc_ver_line(win, &hit, ray);
   }
