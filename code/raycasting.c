@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 22:40:11 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 17:20:08 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/01 20:25:17 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void  rays_calc(t_window *win)
   {
     if (ang < 0)
       ang += 2 * P;
-    else if (ang >= 2 * P)
+    else if (ang > 2 * P)
       ang -= 2 * P;
     // printf("%f degree\n",  ang);
     ray_hit(win, ang, r);
