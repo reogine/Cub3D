@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:11:24 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 18:57:12 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/02 20:38:18 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int   get_pxl_minimap(t_window *win, int x, int y)
   
   bit_per_pxl = win->mini_map.bpp / 8;
   offset = y * win->mini_map.sizeline + x * bit_per_pxl;
-  if (x >= win->mini_map.row * TILESIZE \
+  if (x < 0 || y < 0 || x >= win->mini_map.row * TILESIZE \
     || y >= win->mini_map.col * TILESIZE)
     return (-1);
   else
