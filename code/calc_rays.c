@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 21:35:11 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 20:46:48 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/02 01:38:32 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void  calc_ver_line(t_window *win, t_dou_xy *hit, t_ray *ray)
       [(int)floor(hit->x / TILESIZE)] == '1')
         break ;
     else if (ray->face_left && win->map[(int)floor(hit->y / TILESIZE)]
-        [(int)floor(hit->x / TILESIZE)] == '1')
+        [(int)floor(hit->x / TILESIZE) - 1] == '1')
         break ;
     if (!ray->face_left)
         hit->x += TILESIZE;
