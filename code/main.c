@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include"parsing/cub3d.h"
+#include<window.h>
 
 void	ft_free(t_var *var)
 {
@@ -37,7 +38,7 @@ int	func(int argc, char **argv)
 		if (check_errors2(var, argv) == 1)
 			return (1);
 		ft_find_position(var);
-		win = init_win();
+		win = init_win(var);
 		open_window(win);
 		var->map_elmnt = var->map_elmnt - 6;
 		ft_free (var);

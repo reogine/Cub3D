@@ -19,37 +19,7 @@
 # include<stdlib.h>
 # include<string.h>
 # include<math.h>
-# include "../../Ft_headers/window.h"
-
-typedef struct s_var
-{
-	void	*wall;
-	void	*mlx_win;
-	void	*mlx;
-	void	*floor;
-	int		posx;
-	int		posy;
-	int		i;
-	int		j;
-	int		s;
-	int		n;
-	int		e;
-	int		w;
-	int		offset;
-	int		top_p;
-	int		down_p;
-	int		checker;
-	int		fd_map;
-	int		dst;
-	char	*map;
-	char	**map_elmnt;
-	char	*path_so;
-	char	*path_no;
-	char	*path_ea;
-	char	*path_we;
-	int		*c_colors;
-	int		*f_colors;
-}	t_var;
+# include "../../Ft_headers/game_dev.h"
 
 
 typedef struct	s_data
