@@ -30,8 +30,18 @@ void	ft_draw_walls(t_window *win)
 		top_p = (WIN_H / 2) - (ray.wallstriphiehgt / 2);
 		down_p = top_p + ray.wallstriphiehgt;
 		j = 0;
-		while (j < top_p)	
-			ft_pxl_cub(win->fps, i, j++, 0xFEDD00);
+		while (j < down_p)
+		{
+			ft_pxl_cub(win, i, j++, 0xF9423A);
+		}
+		while (j <= top_p)
+		{
+			ft_pxl_cub(win, i, j++, 0x222223);
+		}
+		while (j < WIN_H)
+		{
+			ft_pxl_cub(win, i, j++, 0x85714D);
+		}
 		i++;
 	}
 	printf("out\n");

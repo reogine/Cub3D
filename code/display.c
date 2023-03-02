@@ -48,6 +48,7 @@ int	trigger_key(int key, t_window *win)
     win->ply.rot_ang -= 2 * P;
   rays_calc(win);
   render_minimap(win); 
+  ft_draw_walls(win);
   mlx_put_image_to_window(win->mlx, win->win_ptr, win->fps, 0, 0); //   mlx_loop_hook(win->mlx, key_pressed, (void *)win);
 	if (key == KEY_ESC)
 		exit (0);
