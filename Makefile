@@ -33,7 +33,7 @@ OBJS = $(addprefix $(SRCS_DIR)/, $(SRCS))
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(OBJS) $(LIBFT) $(LIBMLX) 
-		@$(CC) $(CFLAGS) -g -fsanitize=address $(OBJ) $(OBJS) $(LIBFT) $(LIBMLX) $(HEADERS) $(LMLX) -o $(NAME)
+		@$(CC) $(CFLAGS) $(OBJ) $(OBJS) $(LIBFT) $(LIBMLX) $(HEADERS) $(LMLX) -o $(NAME)
 		@$(PRINTF) "\r%100s\r$(BLUE)$(NAME) is up to date!$(DEFAULT)\n"
 
 bonus : all
