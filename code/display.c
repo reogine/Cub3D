@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 18:58:23 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/02 01:09:19 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int	trigger_key(int key, t_window *win)
 		// ft_go_right(w);
 	// else if (key == KEY_D || key == KEY_RIGHT)
 		// ft_go_left(w);
+  if (win->ply.rot_ang < 0)
+    win->ply.rot_ang += 2 * P;
+  else if (win->ply.rot_ang > 2 * P)
+    win->ply.rot_ang -= 2 * P;
   rays_calc(win);
   render_minimap(win); 
   mlx_put_image_to_window(win->mlx, win->win_ptr, win->fps, 0, 0); //   mlx_loop_hook(win->mlx, key_pressed, (void *)win);
