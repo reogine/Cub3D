@@ -16,8 +16,8 @@
 void	render_frame(t_window *w)
 {
   rays_calc(w);
+  render_minimap(w);
   // ft_draw_walls(w);
-  render_minimap(w); 
 }
 
 void  open_window(t_window  *win)

@@ -106,7 +106,7 @@ int	check_colors(t_var *var)
 		f = ft_strstr(var->map_elmnt[var->i], "F");
 		if (f != NULL)
 		{
-			free (var->map_elmnt[var->i]);
+			// free (var->map_elmnt[var->i]);
 			var->map_elmnt[var->i] = remove_spaces_in_begin(f);
 			if (check_floor_color(var) == 1)
 				return (1);
@@ -114,7 +114,7 @@ int	check_colors(t_var *var)
 		c = ft_strstr(var->map_elmnt[var->i], "C");
 		if (c != NULL )
 		{
-			free (var->map_elmnt[var->i]);
+			// free (var->map_elmnt[var->i]);
 			var->map_elmnt[var->i] = remove_spaces_in_begin(c);
 			if (check_sky_color(var) == 1)
 				return (1);
