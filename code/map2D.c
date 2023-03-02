@@ -59,7 +59,8 @@ t_window *init_win(t_var *var)
   win->width = WIN_W;
   win->map = var->map_elmnt;
   win->mini_map.row = ft_strlen(win->map[0]);
-  win->mini_map.col = 27;
+  win->mini_map.col = map_lines(win->map);
+  printf("%d\n", win->mini_map.col);
   win->win_ptr = mlx_new_window(win->mlx, win->width, win->height, "game");
   win->fps = mlx_new_image(win->mlx, win->width, win->height);
   win->addr_fps = mlx_get_data_addr(win->fps, &win->fps_bpp, \

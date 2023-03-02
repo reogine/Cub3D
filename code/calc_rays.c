@@ -23,7 +23,7 @@ void  calc_ver_line(t_window *win, t_dou_xy *hit, t_ray *ray)
       [(int)floor(hit->x / TILESIZE)] == '1')
         break ;
     else if (ray->face_left && win->map[(int)floor(hit->y / TILESIZE)]
-        [(int)floor(hit->x / TILESIZE)] == '1')
+        [(int)floor(hit->x / TILESIZE) - 1] == '1')
         break ;
     if (!ray->face_left)
         hit->x += TILESIZE;

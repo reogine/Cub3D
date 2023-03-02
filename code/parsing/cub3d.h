@@ -36,6 +36,7 @@ void	ft_putstr(char *str, int fd);
 void	paths_valid(t_var *var);
 void	ft_find_position(t_var *var);
 void	ft_draw_walls(t_window *win);
+int map_lines(char **map);
 // char	*ft_strchr(const char *s, int c);
 // char	*ft_strrchr(const char *str, int c);
 char	*get_next_line(int fd);

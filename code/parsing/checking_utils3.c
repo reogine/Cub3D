@@ -28,22 +28,13 @@ char	*skip_spaces(char *str)
 	return (str);
 }
 
-// int	ft_strncmp(const char *s1, const char *s2, size_t n)
-// {
-// 	unsigned char	*_s1;
-// 	unsigned char	*_s2;
-// 	size_t			i;
+int map_lines(char **map)
+{
+    int i;
 
-// 	_s1 = (unsigned char *) s1;
-// 	_s2 = (unsigned char *) s2;
-// 	i = 0;
-// 	while (i < n)
-// 	{
-// 		if (!(_s1[i] == _s2[i] && _s1[i] != '\0' && _s2[i] != '\0'))
-// 		{
-// 			return (_s1[i] - _s2[i]);
-// 		}
-// 		i++;
-// 	}
-// 	return (0);
-// }
+	i = 0;
+    while (map[i])
+        i++;
+	i--;
+    return (i);
+}
