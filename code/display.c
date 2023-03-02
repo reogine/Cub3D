@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/02 01:09:19 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/02 22:15:13 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 void	render_frame(t_window *w)
 {
   rays_calc(w);
+  ft_draw_walls(w);
   render_minimap(w);
-  // ft_draw_walls(w);
 }
 
 void  open_window(t_window  *win)
@@ -34,8 +34,7 @@ int	trigger_key(int key, t_window *win)
   if (key == KEY_W)
 		ft_go_up(key, win);
 	// else if (key == KEY_S || key == KEY_DOWN) 
-		// ft_go_down(w);
-	// else if (key == KEY_A 
+		// ft_go_down(w); else if (key == KEY_A 
   if (key == KEY_RIGHT)
     win->ply.rot_ang += 4 * (P / 180);
   else if (key == KEY_LEFT)
