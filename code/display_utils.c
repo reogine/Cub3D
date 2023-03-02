@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:11:24 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/02 22:30:58 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/02 22:38:52 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void ft_pxl_cub(t_window *w, int x, int y, int clr)
 {
   char   *cordo_addr;
 
-  if (x < 0 || y < 0 || x <= WIN_W || y <= WIN_W)
+  if (x < 0 || y < 0 || x >= WIN_W || y >= WIN_H)
     return ;
   cordo_addr = w->addr_fps\
         + (y * w->fps_sizeline \
