@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 10:44:09 by midfath           #+#    #+#             */
-/*   Updated: 2023/02/08 13:24:48 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/03 19:35:50 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	func(int argc, char **argv)
 			return (1);
 		ft_find_position(var);
 		win = init_win(var);
+		wall_text(var);
 		open_window(win);
-		// printf("%d\n", rgb_to_hex(var->f_colors));
 		var->map_elmnt = var->map_elmnt - 6;
 		ft_free (var);
 		free (var);

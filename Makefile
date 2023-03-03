@@ -22,11 +22,14 @@ PRINTF 	= printf
 HEADERS	=	-I ./libft -I ./FT_headers  -I ./libmlx  -I /usr/X11/include 
 
 SRC =	main.c map2D.c display.c display_utils.c player.c raycasting.c calc_rays.c \
+		move.c move_utils.c
 		
 SRCS = 	checking_utils.c check_map.c get_next_line.c ft_split.c checking_utils2.c \
 		check_textures.c errors.c check_colors.c adjust_colors.c check_keys.c \
 		check_map_component.c ft_player_position.c checking_utils3.c draw_walls.c \
+		wall_textures.c
 
+		
 OBJ = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS = $(addprefix $(SRCS_DIR)/, $(SRCS))
 

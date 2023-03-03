@@ -19,7 +19,7 @@ int	check_map(t_var *var, char **argv)
 	map_ext = ft_strrchr(argv[1], '.');
 	if (map_ext == NULL)
 		return (1);
-	if (ft_strcmp(map_ext, ".cub") != 0)
+	if (ft_strncmp(map_ext, ".cub", 4) != 0)
 	{
 		ft_putstr("map must be .cub extention\n", 2);
 		return (1);
@@ -99,7 +99,7 @@ int	check_ea_we(char *str, t_var *var)
 
 char	*chaeck_xpm(char *str, t_var *var)
 {
-	if (!str || ft_strcmp(str, ".xpm") != 0)
+	if (!str || ft_strncmp(str, ".xpm", 4) != 0)
 		return (NULL);
 	if (check_so_no(str, var) == 1)
 		return (NULL);

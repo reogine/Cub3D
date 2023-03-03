@@ -27,18 +27,18 @@ void  mini_map_overlay(t_window *win)
   t_xy  str;
   int   clr;
 
-  str.x = win->ply.x - 150;
-  str.y = win->ply.y - 150;
+  str.x = win->ply.x - 70;
+  str.y = win->ply.y - 70;
   cordo.y = 0;
   cordo.x = 0;
-  while (cordo.y < 300)
+  while (cordo.y < 140)
   {
     clr = get_pxl_minimap(win, str.x + cordo.x, str.y + cordo.y);
     if (clr <= 0)
       clr =  0x101541;
-    ft_pxl_cub(win, cordo.x + WIN_W - 300, cordo.y, clr); 
+    ft_pxl_cub(win, cordo.x + WIN_W - 140, cordo.y, clr); 
     cordo.x++;
-    if (cordo.x == 300)
+    if (cordo.x == 140)
     {
       cordo.x = 0;
       cordo.y++;
@@ -60,6 +60,8 @@ t_window *init_win(t_var *var)
   win->map = var->map_elmnt;
   win->mini_map.row = ft_strlen(win->map[0]);
   win->mini_map.col = map_lines(win->map);
+  win->f_colors = var->f_colors;
+  win->c_colors = var->c_colors;
   printf("%d\n", win->mini_map.col);
   win->win_ptr = mlx_new_window(win->mlx, win->width, win->height, "game");
   win->fps = mlx_new_image(win->mlx, win->width, win->height);
