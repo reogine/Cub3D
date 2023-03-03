@@ -10,27 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"parsing/cub3d.h"
-#include<window.h>
+#include "parsing/cub3d.h"
+#include <window.h>
 
 void	ft_free(t_var *var)
 {
 	var->i = 0;
 	while (var->map_elmnt[var->i])
 	{
-		free (var->map_elmnt[var->i]);
+		free(var->map_elmnt[var->i]);
 		var->i++;
 	}
-	free (var->f_colors);
-	free (var->c_colors);
-	free (var->map);
-	free (var->map_elmnt);
+	free(var->f_colors);
+	free(var->c_colors);
+	free(var->map);
+	free(var->map_elmnt);
 }
 
 int	func(int argc, char **argv)
 {
-	t_var	*var;
-	t_window  *win;
+	t_var		*var;
+	t_window	*win;
 
 	if (argc == 2)
 	{
@@ -39,11 +39,12 @@ int	func(int argc, char **argv)
 			return (1);
 		ft_find_position(var);
 		win = init_win(var);
-		wall_text(var);
+		if (wall_text(var) == 1)
+			return (1);
 		open_window(win);
 		var->map_elmnt = var->map_elmnt - 6;
-		ft_free (var);
-		free (var);
+		ft_free(var);
+		free(var);
 	}
 	else
 	{

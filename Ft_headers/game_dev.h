@@ -29,8 +29,6 @@
 # define TEX_H 32
 # define TEX_W 32
 
-
-
 /*player size*/
 # define SIZE MAP_TILESIZE / 4
 
@@ -53,10 +51,10 @@ typedef struct s_var
 	void		*floor;
 	int			posx;
 	int			posy;
-	int	fd_so;
-	int	fd_no;
-	int	fd_ea;
-	int	fd_we;
+	int			fd_so;
+	int			fd_no;
+	int			fd_ea;
+	int			fd_we;
 	int			i;
 	int			j;
 	int			s;

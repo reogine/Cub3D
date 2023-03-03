@@ -1,8 +1,8 @@
 
-          SO ./so_good_so.xpm
-                  NO ./no_good_no.xpm
-      EA           ./ea_good_ea.xpm
-WE           ./we_good_we.xpm
+          SO ./code/parsing/img/white_zelija.xpm
+                  NO ./code/parsing/img/white_zelija.xpm
+      EA           ./code/parsing/img/white_zelija.xpm
+WE           ./code/parsing/img/white_zelija.xpm
 
         F  139,90,43      
               C 25,113,149 

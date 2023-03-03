@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"cub3d.h"
+#include "cub3d.h"
 
 int	check_errors(t_var *var, char **argv)
 {
 	if (check_map(var, argv) == 1)
 	{
-		free (var);
+		free(var);
 		return (1);
 	}
 	paths_valid(var);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"cub3d.h"
+#include "cub3d.h"
 
 int	check_map(t_var *var, char **argv)
 {
@@ -24,7 +24,7 @@ int	check_map(t_var *var, char **argv)
 		ft_putstr("map must be .cub extention\n", 2);
 		return (1);
 	}
-	var->fd_map = open (argv[1], O_RDONLY, 600);
+	var->fd_map = open(argv[1], O_RDONLY, 600);
 	if (var->fd_map < 0)
 	{
 		ft_putstr("Error in map fd", 2);
@@ -52,7 +52,7 @@ int	check_so_no(char *str, t_var *var)
 		so = skip_spaces(var->map_elmnt[var->i]);
 		if (ft_strncmp(so, "SO", 2) != 0)
 			return (1);
-		free (so);
+		free(so);
 		str = ft_strstr(var->map_elmnt[var->i], "SO");
 		var->path_so = ft_strchr(str, '.');
 	}
@@ -62,7 +62,7 @@ int	check_so_no(char *str, t_var *var)
 		no = skip_spaces(var->map_elmnt[var->i]);
 		if (ft_strncmp(no, "NO", 2) != 0)
 			return (1);
-		free (no);
+		free(no);
 		str = ft_strstr(var->map_elmnt[var->i], "NO");
 		var->path_no = ft_strchr(str, '.');
 	}
@@ -80,7 +80,7 @@ int	check_ea_we(char *str, t_var *var)
 		ea = skip_spaces(var->map_elmnt[var->i]);
 		if (ft_strncmp(ea, "EA", 2) != 0)
 			return (1);
-		free (ea);
+		free(ea);
 		str = ft_strstr(var->map_elmnt[var->i], "EA");
 		var->path_ea = ft_strchr(str, '.');
 	}
@@ -90,7 +90,7 @@ int	check_ea_we(char *str, t_var *var)
 		we = skip_spaces(var->map_elmnt[var->i]);
 		if (ft_strncmp(we, "WE", 2) != 0)
 			return (1);
-		free (we);
+		free(we);
 		str = ft_strstr(var->map_elmnt[var->i], "WE");
 		var->path_we = ft_strchr(str, '.');
 	}
