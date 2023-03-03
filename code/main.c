@@ -56,7 +56,6 @@ int	main(int argc, char **argv)
 {
 	if (func(argc, argv) == 1)
 		return (1);
-	system("leaks parsing");
 	return (0);
 }
 

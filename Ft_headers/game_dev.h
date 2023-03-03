@@ -82,6 +82,7 @@ typedef struct s_ray
 	int		face_up;
 	int		face_left;
 	double	distance;
+	double	corr_d;
 	int		projwall;
 	int		wallstriphiehgt;
 	int		windowsheight;

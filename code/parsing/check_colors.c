@@ -107,6 +107,7 @@ int	check_colors(t_var *var)
 		if (f != NULL)
 		{
 			// free (var->map_elmnt[var->i]);
+			// var->map_elmnt[var->i] = NULL;
 			var->map_elmnt[var->i] = remove_spaces_in_begin(f);
 			if (check_floor_color(var) == 1)
 				return (1);
@@ -115,6 +116,7 @@ int	check_colors(t_var *var)
 		if (c != NULL )
 		{
 			// free (var->map_elmnt[var->i]);
+			// var->map_elmnt[var->i] = NULL;
 			var->map_elmnt[var->i] = remove_spaces_in_begin(c);
 			if (check_sky_color(var) == 1)
 				return (1);

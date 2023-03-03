@@ -25,8 +25,9 @@ void	ft_draw_walls(t_window *win)
 	while (i < WIN_W)
 	{
 		ray = win->rays[i];
+		ray.corr_d = cos(ray.angle - win->ply.rot_ang) * ray.distance;
 		ray.projwall = (WIN_W / 2) / tan(FOV / 2);
-		ray.wallstriphiehgt = (TILESIZE / ray.distance) * ray.projwall;
+		ray.wallstriphiehgt = (TILESIZE / ray.corr_d) * ray.projwall;
 		top_p = (WIN_H / 2) - (ray.wallstriphiehgt / 2);
 		down_p = top_p + ray.wallstriphiehgt;
 		j = 0;
@@ -44,5 +45,4 @@ void	ft_draw_walls(t_window *win)
 		}
 		i++;
 	}
-	printf("out\n");
 }
