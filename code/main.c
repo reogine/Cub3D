@@ -40,6 +40,7 @@ int	func(int argc, char **argv)
 		ft_find_position(var);
 		win = init_win(var);
 		open_window(win);
+		// printf("%d\n", rgb_to_hex(var->f_colors));
 		var->map_elmnt = var->map_elmnt - 6;
 		ft_free (var);
 		free (var);
@@ -58,8 +59,3 @@ int	main(int argc, char **argv)
 		return (1);
 	return (0);
 }
-
-// int main()
-// {
-//   
-// }

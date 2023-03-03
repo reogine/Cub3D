@@ -60,5 +60,6 @@ int		check_values(t_var *var);
 int		check_key_f(t_var *var);
 int		check_map_component(t_var *var);
 int		check_numberof_element(t_var *var);
+int		rgb_to_hex(int	*color);
 
 #endif

@@ -13,6 +13,11 @@
 #include"cub3d.h"
 #include<window.h>
 
+int	rgb_to_hex(int	*color)
+{
+	return ((color[0] << 16) + (color[1] << 8) + (color[2]));
+}
+
 void	ft_draw_walls(t_window *win)
 {
 	t_ray	ray;
