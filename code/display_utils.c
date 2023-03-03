@@ -6,27 +6,12 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:11:24 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/02 22:38:52 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/03 03:24:25 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <window.h>
 
-int       valid_des(t_window *w, double nxt_x, double nxt_y)
-{
-    int curr_y = (int)(w->ply.y / TILESIZE);
-    int curr_x = (int)(w->ply.x / TILESIZE);
-    int next_y_cell = (int)(nxt_y / TILESIZE);
-    int next_x_cell = (int)(nxt_x / TILESIZE);
-
-    if (w->map[next_y_cell][next_x_cell] != '0')
-        return (2);
-
-    if (next_y_cell != curr_y && next_x_cell != curr_x)
-        return (1);
-// todo :: return 0;
-    return (1);
-}
 
 int   get_pxl_minimap(t_window *win, int x, int y)
 {
@@ -81,7 +66,6 @@ void  ft_pxl_line(t_window *w, t_xy str, t_xy end, int clr)
   while (pxline_len-- > 0)
   {
     ft_pxl(w, str.x + mid.x, str.y + mid.y, clr);
-    // printf("here:%f\n", dou_mid.x);
     mid.x += dou_mid.x;
     mid.y += dou_mid.y;
   }

@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 22:40:11 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/02 02:33:29 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/02 22:48:01 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void  rays_calc(t_window *win)
       ang += 2 * P;
     else if (ang > 2 * P)
       ang -= 2 * P;
-    // printf("%f degree\n",  ang);
     ray_hit(win, ang, r);
     ang += (FOV * (P / 180)) / WIN_W;
     r++;
@@ -85,7 +84,7 @@ void  rays_display(t_window *win)
       end.x = win->rays[i].hit_x * SCALE;  
       end.y = win->rays[i].hit_y * SCALE;
     }
-    ft_pxl_line(win, str, end, 0xA0A0A0);
+    ft_pxl_line(win, str, end, 0x7F7F7F);
     i++;
   }
 }

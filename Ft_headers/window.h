@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 18:49:08 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/03 04:41:49 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 
+# define PLAYER_RADIUS (TILESIZE / 2) - 1
 
 typedef struct s_ray
 {
@@ -147,6 +148,9 @@ void      calc_ver_line(t_window *win, t_dou_xy *hit, t_ray *ray);
 void      init_ply(t_window *win);
 void      get_ply_cordo(t_window *win, t_xy cordo);
 void      ply_display(t_window *win);
-void      ft_go_up(int key, t_window *w);
+void      ft_go_left(t_window *w);
+void      ft_go_right(t_window *w);
+void      ft_go_down(t_window *w);
+void      ft_go_up(t_window *w);
 int       valid_des(t_window *w, double nxt_x, double nxt_y);
 #endif // !WINDOW_H

@@ -6,37 +6,11 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:19:04 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/01 18:58:37 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/02 23:43:18 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <window.h>
-
-void  ft_go_up(int key, t_window *w)
-{
-  double    new_x;
-  double    new_y;
-  int       des;
-
-  new_x = w->ply.x + cos(w->ply.rot_ang) * PPM;
-  new_y = w->ply.y + sin(w->ply.rot_ang) * PPM;
-  des = valid_des(w, new_x, new_y);
-
-  if (key != KEY_W || !des)
-    return ;
-  if (des == 2)
-  {
-    if (valid_des(w, new_x, w->ply.y) == 1)
-      w->ply.x += cos(w->ply.rot_ang) * (PPM / 2);
-    else if (valid_des(w, new_y, w->ply.y) == 1)
-      w->ply.y += sin(w->ply.rot_ang) * (PPM / 2);
-  }
-  else
-  {
-    w->ply.x = new_x;
-    w->ply.y = new_y;
-  }
-}
 
 void  get_ply_cordo(t_window *win, t_xy cordo) {
   win->ply.x = (cordo.x * TILESIZE) + TILESIZE / 2;

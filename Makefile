@@ -21,7 +21,7 @@ PRINTF 	= printf
 HEADERS	=	-I ./libft -I ./FT_headers  -I ./libmlx  -I /usr/X11/include 
 
 SRC =	main.c map2D.c display.c display_utils.c player.c raycasting.c calc_rays.c\
-
+			move.c move_utils.c
 OBJ = $(addprefix $(SRC_DIR)/, $(SRC))
 
 all : $(NAME)

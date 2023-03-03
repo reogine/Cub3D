@@ -6,16 +6,16 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:06:13 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/02 22:15:13 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/02 23:50:47 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <window.h>
 
-void	render_frame(t_window *w)
+void	render_frame(t_window *win)
 {
-  rays_calc(w);
-  render_minimap(w); 
+  rays_calc(win);
+  render_minimap(win); 
 }
 
 void  open_window(t_window  *win)
@@ -30,16 +30,17 @@ void  open_window(t_window  *win)
 int	trigger_key(int key, t_window *win)
 {
   if (key == KEY_W)
-		ft_go_up(key, win);
-	// else if (key == KEY_S || key == KEY_DOWN) 
-		// ft_go_down(w); else if (key == KEY_A 
+		ft_go_up(win);
+	else if (key == KEY_S) 
+		ft_go_down(win); 
+  else if (key == KEY_A) 
+		ft_go_right(win);
+	else if (key == KEY_D)
+		ft_go_left(win);
   if (key == KEY_RIGHT)
     win->ply.rot_ang += 4 * (P / 180);
   else if (key == KEY_LEFT)
     win->ply.rot_ang -= 4 * (P / 180);
-		// ft_go_right(w);
-	// else if (key == KEY_D || key == KEY_RIGHT)
-		// ft_go_left(w);
   if (win->ply.rot_ang < 0)
     win->ply.rot_ang += 2 * P;
   else if (win->ply.rot_ang > 2 * P)
@@ -53,11 +54,11 @@ int	trigger_key(int key, t_window *win)
 }
 
 
-int	end_window(t_window *w)
+int	end_window(t_window *win)
 {
 	 // ft_matfreex(&win->map);
 	// mlx_destroy_window(win->mlx, win->win_ptr);
   // free(win->mlx);
-	(void) w;	
+	(void) win;	
 	exit (0);
 }
