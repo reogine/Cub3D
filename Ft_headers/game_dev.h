@@ -87,6 +87,8 @@ typedef struct s_ray
 	int			wallstriphiehgt;
 	int			windowsheight;
 	int			is_horizontal;
+	int			top_p;
+	int			down_p;
 }				t_ray;
 
 typedef struct s_texs

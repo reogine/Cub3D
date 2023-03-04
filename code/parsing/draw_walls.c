@@ -36,29 +36,32 @@ int	set_color_from_texture(t_window *win, t_ray *ray, int y)
 	return (*(int *)tile_buffer);
 }
 
+void	calcul_setting(t_window *win, t_ray *ray, int i)
+{
+	*ray = win->rays[i];
+	ray->corr_d = cos(ray->angle - win->ply.rot_ang) * ray->distance;
+	ray->projwall = (WIN_W / 2) / tan((FOV * (P / 180)) / 2);
+	ray->wallstriphiehgt = (TILESIZE / ray->corr_d) * ray->projwall;
+	ray->top_p = (WIN_H / 2) - (ray->wallstriphiehgt / 2);
+	ray->down_p = ray->top_p + ray->wallstriphiehgt;
+}
+
 void	ft_draw_walls(t_window *win)
 {
 	t_ray	ray;
-	int		top_p;
-	int		down_p;
 	int		i;
 	int		j;
 
 	i = 0;
 	while (i < WIN_W)
 	{
-		ray = win->rays[i];
-		ray.corr_d = cos(ray.angle - win->ply.rot_ang) * ray.distance;
-		ray.projwall = (WIN_W / 2) / tan((FOV * (P / 180)) / 2);
-		ray.wallstriphiehgt = (TILESIZE / ray.corr_d) * ray.projwall;
-		top_p = (WIN_H / 2) - (ray.wallstriphiehgt / 2);
-		down_p = top_p + ray.wallstriphiehgt;
+		calcul_setting(win, &ray, i);
 		j = 0;
-		while (j < top_p)
+		while (j < ray.top_p)
 			ft_pxl_cub(win, i, j++, rgb_to_hex(win->c_colors));
-		while (j < down_p && j < WIN_H)
+		while (j < ray.down_p && j < WIN_H)
 		{
-			ft_pxl_cub(win, i, j, set_color_from_texture(win, &ray, j - top_p));
+			ft_pxl_cub(win, i, j, set_color_from_texture(win, &ray, j - ray.top_p));
 			j++;
 		}
 		while (j < WIN_H)
