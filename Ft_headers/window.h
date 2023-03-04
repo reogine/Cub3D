@@ -6,7 +6,7 @@
 /*   By: mostapha <mostapha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:51:48 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/03 19:36:18 by aomman           ###   ########.fr       */
+/*   Updated: 2023/03/04 10:52:39 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void		rays_calc(t_window *win);
 t_dou_xy	find_hit_point(t_window *win, t_ray *ray, int is_hor);
 void		calc_hor_line(t_window *win, t_dou_xy *hit, t_ray *ray);
 void		calc_ver_line(t_window *win, t_dou_xy *hit, t_ray *ray);
+int       trigger_mouse(int x, int y, t_window *win);
 
 /* Player */
 void		init_ply(t_window *win);
@@ -48,4 +49,5 @@ void		ft_go_right(t_window *w);
 void		ft_go_down(t_window *w);
 void		ft_go_up(t_window *w);
 int			valid_des(t_window *w, double nxt_x, double nxt_y);
+
 #endif // !WINDOW_H

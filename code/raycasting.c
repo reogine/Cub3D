@@ -6,7 +6,7 @@
 /*   By: midfath <midfath@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 22:40:11 by midfath           #+#    #+#             */
-/*   Updated: 2023/03/02 22:48:01 by midfath          ###   ########.fr       */
+/*   Updated: 2023/03/04 09:08:06 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	rays_display(t_window *win)
 			end.x = win->rays[i].hit_x * SCALE;
 			end.y = win->rays[i].hit_y * SCALE;
 		}
-		ft_pxl_line(win, str, end, 0x7F7F7F);
+		ft_pxl_line(win, str, end, 0x999999);
 		i++;
 	}
 }

@@ -23,16 +23,31 @@ int	set_color_from_texture(t_window *win, t_ray *ray, int y)
 	char	*tile_buffer;
 	t_data	img_set;
 
-	tile_buffer = mlx_get_data_addr(win->so_text, &img_set.bits_per_pixel,
-			&img_set.line_length, &img_set.endian);
+	tile_buffer = NULL;
 	if (ray->is_horizontal)
+	{
+		if (ray->face_up == 0)
+			tile_buffer = mlx_get_data_addr(win->so_text, &img_set.bits_per_pixel,
+					&img_set.line_length, &img_set.endian);
+		else
+			tile_buffer = mlx_get_data_addr(win->no_text, &img_set.bits_per_pixel,
+					&img_set.line_length, &img_set.endian);
 		tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
 						/ (double)ray->wallstriphiehgt)) * img_set.line_length
 				+ ((int)(ray->hit_x) % TEX_W) * (img_set.bits_per_pixel / 8));
+	}
 	else
+	{
+		if (ray->face_left == 0)
+			tile_buffer = mlx_get_data_addr(win->ea_text, &img_set.bits_per_pixel,
+					&img_set.line_length, &img_set.endian);
+		else
+			tile_buffer = mlx_get_data_addr(win->we_text, &img_set.bits_per_pixel,
+					&img_set.line_length, &img_set.endian);
 		tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
 						/ (double)ray->wallstriphiehgt)) * img_set.line_length
 				+ ((int)(ray->hit_y) % TEX_W) * (img_set.bits_per_pixel / 8));
+	}
 	return (*(int *)tile_buffer);
 }
 
@@ -61,7 +76,8 @@ void	ft_draw_walls(t_window *win)
 			ft_pxl_cub(win, i, j++, rgb_to_hex(win->c_colors));
 		while (j < ray.down_p && j < WIN_H)
 		{
-			ft_pxl_cub(win, i, j, set_color_from_texture(win, &ray, j - ray.top_p));
+			ft_pxl_cub(win, i, j, set_color_from_texture(win, &ray, j
+						- ray.top_p));
 			j++;
 		}
 		while (j < WIN_H)
