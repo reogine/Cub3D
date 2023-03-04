@@ -10,12 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"cub3d.h"
-#include<window.h>
+#include "cub3d.h"
+#include <window.h>
 
-int	rgb_to_hex(int	*color)
+int	rgb_to_hex(int *color)
 {
 	return ((color[0] << 16) + (color[1] << 8) + (color[2]));
+}
+
+int	set_color_from_texture(t_window *win, t_ray *ray, int y)
+{
+	char	*tile_buffer;
+	t_data	img_set;
+
+	tile_buffer = mlx_get_data_addr(win->so_text, &img_set.bits_per_pixel,
+			&img_set.line_length, &img_set.endian);
+	if (ray->is_horizontal)
+		tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
+						/ (double)ray->wallstriphiehgt)) * img_set.line_length
+				+ ((int)(ray->hit_x) % TEX_W) * (img_set.bits_per_pixel / 8));
+	else
+		tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
+						/ (double)ray->wallstriphiehgt)) * img_set.line_length
+				+ ((int)(ray->hit_y) % TEX_W) * (img_set.bits_per_pixel / 8));
+	return (*(int *)tile_buffer);
 }
 
 void	ft_draw_walls(t_window *win)
@@ -37,9 +55,12 @@ void	ft_draw_walls(t_window *win)
 		down_p = top_p + ray.wallstriphiehgt;
 		j = 0;
 		while (j < top_p)
-			ft_pxl_cub(win, i, j++, rgb_to_hex(win->c_colors));	
-		while (j <= down_p)
-			ft_pxl_cub(win, i, j++, 0x222223);
+			ft_pxl_cub(win, i, j++, rgb_to_hex(win->c_colors));
+		while (j < down_p && j < WIN_H)
+		{
+			ft_pxl_cub(win, i, j, set_color_from_texture(win, &ray, j - top_p));
+			j++;
+		}
 		while (j < WIN_H)
 			ft_pxl_cub(win, i, j++, rgb_to_hex(win->f_colors));
 		i++;

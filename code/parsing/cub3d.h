@@ -59,6 +59,6 @@ int			check_key_f(t_var *var);
 int			check_map_component(t_var *var);
 int			check_numberof_element(t_var *var);
 int			rgb_to_hex(int *color);
-int			wall_text(t_var *var);
+int		wall_text(t_window *win);
 
 #endif

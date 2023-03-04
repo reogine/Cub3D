@@ -51,10 +51,6 @@ typedef struct s_var
 	void		*floor;
 	int			posx;
 	int			posy;
-	int			fd_so;
-	int			fd_no;
-	int			fd_ea;
-	int			fd_we;
 	int			i;
 	int			j;
 	int			s;
@@ -151,6 +147,18 @@ typedef struct s_window
 	int			fps_bpp;
 	int			fps_endian;
 	int			fps_sizeline;
+	void		*so_text;
+	void		*no_text;
+	void		*we_text;
+	void		*ea_text;
+	char		*so_addr;
+	char		*no_addr;
+	char		*ea_addr;
+	char		*we_addr;
+	char		*path_so;
+	char		*path_no;
+	char		*path_ea;
+	char		*path_we;
 	t_ray		rays[WIN_W];
 }				t_window;
 

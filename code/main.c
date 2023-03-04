@@ -39,8 +39,6 @@ int	func(int argc, char **argv)
 			return (1);
 		ft_find_position(var);
 		win = init_win(var);
-		if (wall_text(var) == 1)
-			return (1);
 		open_window(win);
 		var->map_elmnt = var->map_elmnt - 6;
 		ft_free(var);
