@@ -15,13 +15,7 @@
 int	line_lenght(char **str)
 {
 	int		len;
-	char	*s1;
-	char	*s2;
 
-	s1 = remove_spaces_in_begin(str[1]);
-	s2 = remove_spaces_in_end(s1);
-	len = ft_strlen(s2);
-	free(s1);
-	free(s2);
+	len = ft_strlen(str[0]);
 	return (len);
 }
