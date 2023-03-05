@@ -14,7 +14,7 @@ NAME		=	Cub3D
 LIBFT		= libft/libft.a
 LIBMLX	= libmlx/libmlx.a
 CC			= gcc
-CFLAGS	= -Wall -Wextra -Werror # -fsanitize=address -g
+CFLAGS	= -Wall -Wextra -Werror
 # LMLX		=	-L ./libmlx -L /usr/X11/lib -lmlx -framework OpenGL -framework  AppKit
 LMLX		= -L $(PWD)/libmlx -lmlx -framework OpenGL -framework  AppKit
 RM			= rm -rf

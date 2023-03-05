@@ -12,6 +12,14 @@
 
 #include <window.h>
 
+static void	set_ray(t_ray *ray, t_dou_xy hit, double dis,int is_hor)
+{
+	ray->hit_x = hit.x;
+	ray->hit_y = hit.y;
+	ray->distance = dis;
+	ray->is_horizontal = is_hor;
+}
+
 void	ray_hit(t_window *win, double rot_ang, int indx)
 {
 	t_ray		*ray;
@@ -29,19 +37,9 @@ void	ray_hit(t_window *win, double rot_ang, int indx)
 	dis_hor = fabs((hor_hit.x - win->ply.x) / cos(rot_ang));
 	dis_ver = fabs((ver_hit.y - win->ply.y) / sin(rot_ang));
 	if (dis_hor < dis_ver)
-	{
-		ray->hit_x = hor_hit.x;
-		ray->hit_y = hor_hit.y;
-		ray->distance = dis_hor;
-		ray->is_horizontal = 1;
-	}
+		set_ray(ray, hor_hit, dis_hor, 1);
 	else
-	{
-		ray->hit_x = ver_hit.x;
-		ray->hit_y = ver_hit.y;
-		ray->distance = dis_ver;
-		ray->is_horizontal = 0;
-	}
+		set_ray(ray, ver_hit, dis_ver, 0);
 }
 
 void	rays_calc(t_window *win)

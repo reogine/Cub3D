@@ -35,6 +35,5 @@ int	map_lines(char **map)
 	i = 0;
 	while (map[i])
 		i++;
-	i--;
 	return (i);
 }

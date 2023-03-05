@@ -46,19 +46,8 @@ void	mini_map_overlay(t_window *win)
 	}
 }
 
-t_window	*init_win(t_var *var)
+void	init_data(t_window *win, t_var *var)
 {
-	t_window	*win;
-
-	win = (t_window *)malloc(sizeof(t_window));
-	win->x = 0;
-	win->y = 0;
-	win->mlx = mlx_init();
-	win->height = WIN_H;
-	win->width = WIN_W;
-	win->map = var->map_elmnt;
-	win->mini_map.row = ft_strlen(win->map[0]);
-	win->mini_map.col = map_lines(win->map);
 	win->f_colors = var->f_colors;
 	win->c_colors = var->c_colors;
 	win->path_so = var->path_so;
@@ -76,6 +65,22 @@ t_window	*init_win(t_var *var)
 			&win->mini_map.bpp,
 			&win->mini_map.sizeline,
 			&win->mini_map.endian);
+}
+
+t_window	*init_win(t_var *var)
+{
+	t_window	*win;
+
+	win = (t_window *)malloc(sizeof(t_window));
+	win->x = 0;
+	win->y = 0;
+	win->mlx = mlx_init();
+	win->height = WIN_H;
+	win->width = WIN_W;
+	win->map = var->map_elmnt;
+	win->mini_map.row = ft_strlen(win->map[0]);
+	win->mini_map.col = map_lines(win->map);
+	init_data(win, var);
 	init_ply(win);
 	return (win);
 }

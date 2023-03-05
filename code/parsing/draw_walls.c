@@ -25,7 +25,7 @@ int	horizontal_texture(t_window *win, t_ray *ray, int y)
 		tile_buffer = mlx_get_data_addr(win->no_text, &img_set.bits_per_pixel,
 				&img_set.line_length, &img_set.endian);
 	tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
-					/ (double)ray->wallstriphiehgt)) * img_set.line_length
+					/ (double)ray->wallstriphiehgt)) *img_set.line_length
 			+ ((int)(ray->hit_x) % TEX_W) * (img_set.bits_per_pixel / 8));
 	return (*(int *)tile_buffer);
 }
@@ -42,7 +42,7 @@ int	vertical_texture(t_window *win, t_ray *ray, int y)
 		tile_buffer = mlx_get_data_addr(win->we_text, &img_set.bits_per_pixel,
 				&img_set.line_length, &img_set.endian);
 	tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
-					/ (double)ray->wallstriphiehgt)) * img_set.line_length
+					/ (double)ray->wallstriphiehgt)) *img_set.line_length
 			+ ((int)(ray->hit_y) % TEX_W) * (img_set.bits_per_pixel / 8));
 	return (*(int *)tile_buffer);
 }
