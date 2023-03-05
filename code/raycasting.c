@@ -12,7 +12,7 @@
 
 #include <window.h>
 
-static void	set_ray(t_ray *ray, t_dou_xy hit, double dis,int is_hor)
+static void	set_ray(t_ray *ray, t_dou_xy hit, double dis, int is_hor)
 {
 	ray->hit_x = hit.x;
 	ray->hit_y = hit.y;

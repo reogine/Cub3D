@@ -78,7 +78,7 @@ t_window	*init_win(t_var *var)
 	win->height = WIN_H;
 	win->width = WIN_W;
 	win->map = var->map_elmnt;
-	win->mini_map.row = ft_strlen(win->map[0]);
+	win->mini_map.row = line_lenght(var->map_elmnt);
 	win->mini_map.col = map_lines(win->map);
 	init_data(win, var);
 	init_ply(win);

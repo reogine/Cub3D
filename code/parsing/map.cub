@@ -1,14 +1,17 @@
 
-  SO        ./code/parsing/img/txt.xpm
-            NO     ./code/parsing/img/dgren.xpm
-      EA  ./code/parsing/img/nigga.xpm
- WE ./code/parsing/img/purp.xpm
+  SO        ./code/parsing/img/black_brick.xpm
+            NO     ./code/parsing/img/black_brick2.xpm
+      EA  ./code/parsing/img/brick.xpm
+ WE ./code/parsing/img/txt.xpm
 
              F  83,90,43
-                  C 25,113,149           
+                    C 25,113,149           
 
 
-         11111111111111111111111111
+
+
+
+         1111111111111111111111111
          10000000000000000000000001
          10100000010000000100000001
          10000000000000000000000001

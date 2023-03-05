@@ -45,9 +45,9 @@ int	trigger_mouse(int x, int y, t_window *win)
 	(void)y;
 	mlx_mouse_move(win->win_ptr, (WIN_W / 2), (WIN_H / 2));
 	if (x - (WIN_W / 2) < 0)
-		win->ply.rot_ang -= 4 * (P / 180);
+		win->ply.rot_ang -= 3 * (P / 180);
 	else if (x - (WIN_W / 2) > 0)
-		win->ply.rot_ang += 4 * (P / 180);
+		win->ply.rot_ang += 3 * (P / 180);
 	if (win->ply.rot_ang < 0)
 		win->ply.rot_ang += 2 * P;
 	else if (win->ply.rot_ang > 2 * P)

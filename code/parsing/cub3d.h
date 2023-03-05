@@ -38,6 +38,7 @@ int			map_lines(char **map);
 char		*get_next_line(int fd);
 char		*ft_strstr(char *str, char *to_find);
 char		*remove_spaces_in_begin(char *str);
+char		*remove_spaces_in_end(char *str);
 char		*color_adjustement(char *str);
 char		*ft_strcpy(char *s1, char *s2);
 char		*skip_spaces(char *str);
@@ -61,5 +62,6 @@ int			rgb_to_hex(int *color);
 int			wall_text(t_window *win);
 int			set_floor_color(t_var *var, char **color_elmnt);
 int			rgb_to_hex(int *color);
+int			line_lenght(char **str);
 
 #endif

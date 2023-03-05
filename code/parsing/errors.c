@@ -17,10 +17,7 @@ int	check_error3(t_var *var)
 	if (var->ch < 2)
 		return (1);
 	if (check_values(var) == 1)
-	{
-		ft_putstr("Error \n- map file error\n", 2);
 		return (1);
-	}
 	var->checker = 6;
 	if (check_map_component(var) == 1)
 	{
