@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checking_utils3.c                                  :+:      :+:    :+:   */
+/*   set_floor_color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 14:37:11 by aomman            #+#    #+#             */
-/*   Updated: 2023/02/24 14:37:14 by aomman           ###   ########.fr       */
+/*   Created: 2023/03/05 14:23:47 by aomman            #+#    #+#             */
+/*   Updated: 2023/03/05 14:23:48 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include"cub3d.h"
 
-char	*skip_spaces(char *str)
+int	check_values(t_var *var)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] <= 32)
-			i++;
-		else
-			break ;
-	}
-	str = ft_substr(str, i, ft_strlen(str));
-	return (str);
-}
-
-int	map_lines(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
+	while (i < 3)
+	{	
+		if (var->f_colors[i] > 255 || var->f_colors[i] < 0)
+			return (1);
+		if (var->c_colors[i] > 255 || var->c_colors[i] < 0)
+			return (1);
 		i++;
-	i--;
-	return (i);
+	}
+	return (0);
 }

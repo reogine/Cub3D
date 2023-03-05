@@ -12,22 +12,6 @@
 
 #include"cub3d.h"
 
-int	check_values(t_var *var)
-{
-	int	i;
-
-	i = 0;
-	while (i < 3)
-	{	
-		if (var->f_colors[i] > 255 || var->f_colors[i] < 0)
-			return (1);
-		if (var->c_colors[i] > 255 || var->c_colors[i] < 0)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 static	void	ft_free(char **str)
 {
 	int	i;
@@ -41,22 +25,10 @@ static	void	ft_free(char **str)
 	free (str);
 }
 
-int	check_floor_color(t_var *var)
+int	set_floor_color(t_var *var, char **color_elmnt)
 {
-	int		i;
-	char	*color;
-	char	**color_elmnt;
+	int	i;
 
-	var->f_colors = malloc(sizeof(int) * 3);
-	if (check_key_f(var) == 1)
-		return (1);
-	color = color_adjustement(var);
-	if (color == NULL || !var->f_colors)
-		return (1);
-	if (check_spaces(color) == 1)
-		return (1);
-	color_elmnt = ft_split(color, ',');
-	free (color);
 	i = 0;
 	while (i < 3)
 	{
@@ -65,20 +37,47 @@ int	check_floor_color(t_var *var)
 		var->f_colors[i] = ft_atoi(color_elmnt[i]);
 		i++;
 	}
-	ft_free(color_elmnt);
+	if (color_elmnt)
+		ft_free(color_elmnt);
 	return (0);
 }
 
-int	check_sky_color(t_var *var)
+int	check_floor_color(t_var *var, char *str)
+{
+	int		i;
+	char	*color;
+	char	**color_elmnt;
+
+	var->f_colors = malloc(sizeof(int) * 3);
+	str = remove_spaces_in_begin(str);
+	if (check_key_f(var) == 1)
+		return (1);
+	color = color_adjustement(str);
+	if (color == NULL || !var->f_colors)
+		return (1);
+	free (str);
+	if (check_spaces(color) == 1)
+		return (1);
+	color_elmnt = ft_split(color, ',');
+	free (color);
+	i = 0;
+	if (set_floor_color(var, color_elmnt) == 1)
+		return (1);
+	return (0);
+}
+
+int	check_sky_color(t_var *var, char *str)
 {
 	int		i;
 	char	*color;
 	char	**color_elmnt;
 
 	var->c_colors = malloc(sizeof(int) * 3);
+	str = remove_spaces_in_begin(str);
 	if (check_key_c(var) == 1)
 		return (1);
-	color = color_adjustement(var);
+	color = color_adjustement(str);
+	free (str);
 	if (color == NULL || !var->f_colors)
 		return (1);
 	color_elmnt = ft_split(color, ',');
@@ -101,24 +100,21 @@ int	check_colors(t_var *var)
 	char	*c;
 
 	var->i = 0;
+	var->ch = 0;
 	while (var->map_elmnt[var->i])
 	{
 		f = ft_strstr(var->map_elmnt[var->i], "F");
 		if (f != NULL)
 		{
-			// free (var->map_elmnt[var->i]);
-			// var->map_elmnt[var->i] = NULL;
-			var->map_elmnt[var->i] = remove_spaces_in_begin(f);
-			if (check_floor_color(var) == 1)
+			var->ch++;
+			if (check_floor_color(var, f) == 1)
 				return (1);
 		}
 		c = ft_strstr(var->map_elmnt[var->i], "C");
 		if (c != NULL )
 		{
-			// free (var->map_elmnt[var->i]);
-			// var->map_elmnt[var->i] = NULL;
-			var->map_elmnt[var->i] = remove_spaces_in_begin(c);
-			if (check_sky_color(var) == 1)
+			var->ch++;
+			if (check_sky_color(var, c) == 1)
 				return (1);
 		}
 		var->i++;

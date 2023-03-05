@@ -50,7 +50,6 @@ t_window	*init_win(t_var *var)
 {
 	t_window	*win;
 
-	// init_tx(win);
 	win = (t_window *)malloc(sizeof(t_window));
 	win->x = 0;
 	win->y = 0;
@@ -71,10 +70,12 @@ t_window	*init_win(t_var *var)
 	win->addr_fps = mlx_get_data_addr(win->fps, &win->fps_bpp,
 			&win->fps_sizeline, &win->fps_endian);
 	win->mini_map.img = mlx_new_image(win->mlx,
-										win->mini_map.row * TILESIZE,
-										win->mini_map.col * TILESIZE);
+			win->mini_map.row * TILESIZE,
+			win->mini_map.col * TILESIZE);
 	win->mini_map.addr = mlx_get_data_addr(win->mini_map.img,
-			&win->mini_map.bpp, &win->mini_map.sizeline, &win->mini_map.endian);
+			&win->mini_map.bpp,
+			&win->mini_map.sizeline,
+			&win->mini_map.endian);
 	init_ply(win);
 	return (win);
 }

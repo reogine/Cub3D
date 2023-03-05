@@ -19,10 +19,10 @@
 # include <stdlib.h>
 
 t_window	*init_win(t_var *var);
-void		open_window(t_window *win);
+int			open_window(t_window *win);
 void		mini_map_overlay(t_window *win);
 void		mini_map_display(t_window *win);
-void		render_frame(t_window *w);
+int			render_frame(t_window *w);
 void		render_minimap(t_window *w);
 void		init_tx(void);
 int			trigger_key(int key, t_window *w);
@@ -38,7 +38,7 @@ void		rays_calc(t_window *win);
 t_dou_xy	find_hit_point(t_window *win, t_ray *ray, int is_hor);
 void		calc_hor_line(t_window *win, t_dou_xy *hit, t_ray *ray);
 void		calc_ver_line(t_window *win, t_dou_xy *hit, t_ray *ray);
-int       trigger_mouse(int x, int y, t_window *win);
+int			trigger_mouse(int x, int y, t_window *win);
 
 /* Player */
 void		init_ply(t_window *win);

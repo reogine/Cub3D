@@ -67,8 +67,11 @@ int	check_key_c(t_var *var)
 	while (i < strlen_var)
 	{
 		if (var->map_elmnt[var->i][i] == 'C')
-			break ;
-		if (var->map_elmnt[var->i][i] > 33)
+			i++;
+		if ((var->map_elmnt[var->i][i] >= 97
+			&& var->map_elmnt[var->i][i] <= 122)
+			|| (var->map_elmnt[var->i][i] >= 65
+			&& var->map_elmnt[var->i][i] <= 90))
 			return (1);
 		i++;
 	}
@@ -85,8 +88,11 @@ int	check_key_f(t_var *var)
 	while (i < strlen_var)
 	{
 		if (var->map_elmnt[var->i][i] == 'F')
-			break ;
-		if (var->map_elmnt[var->i][i] > ' ')
+			i++;
+		if ((var->map_elmnt[var->i][i] >= 97
+			&& var->map_elmnt[var->i][i] <= 122)
+			|| (var->map_elmnt[var->i][i] >= 65
+			&& var->map_elmnt[var->i][i] <= 90))
 			return (1);
 		i++;
 	}

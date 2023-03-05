@@ -13,42 +13,45 @@
 #include "cub3d.h"
 #include <window.h>
 
-int	rgb_to_hex(int *color)
-{
-	return ((color[0] << 16) + (color[1] << 8) + (color[2]));
-}
-
-int	set_color_from_texture(t_window *win, t_ray *ray, int y)
+int	horizontal_texture(t_window *win, t_ray *ray, int y)
 {
 	char	*tile_buffer;
 	t_data	img_set;
 
-	tile_buffer = NULL;
-	if (ray->is_horizontal)
-	{
-		if (ray->face_up == 0)
-			tile_buffer = mlx_get_data_addr(win->so_text, &img_set.bits_per_pixel,
-					&img_set.line_length, &img_set.endian);
-		else
-			tile_buffer = mlx_get_data_addr(win->no_text, &img_set.bits_per_pixel,
-					&img_set.line_length, &img_set.endian);
-		tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
-						/ (double)ray->wallstriphiehgt)) * img_set.line_length
-				+ ((int)(ray->hit_x) % TEX_W) * (img_set.bits_per_pixel / 8));
-	}
+	if (ray->face_up == 0)
+		tile_buffer = mlx_get_data_addr(win->so_text, &img_set.bits_per_pixel,
+				&img_set.line_length, &img_set.endian);
 	else
-	{
-		if (ray->face_left == 0)
-			tile_buffer = mlx_get_data_addr(win->ea_text, &img_set.bits_per_pixel,
-					&img_set.line_length, &img_set.endian);
-		else
-			tile_buffer = mlx_get_data_addr(win->we_text, &img_set.bits_per_pixel,
-					&img_set.line_length, &img_set.endian);
-		tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
-						/ (double)ray->wallstriphiehgt)) * img_set.line_length
-				+ ((int)(ray->hit_y) % TEX_W) * (img_set.bits_per_pixel / 8));
-	}
+		tile_buffer = mlx_get_data_addr(win->no_text, &img_set.bits_per_pixel,
+				&img_set.line_length, &img_set.endian);
+	tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
+					/ (double)ray->wallstriphiehgt)) * img_set.line_length
+			+ ((int)(ray->hit_x) % TEX_W) * (img_set.bits_per_pixel / 8));
 	return (*(int *)tile_buffer);
+}
+
+int	vertical_texture(t_window *win, t_ray *ray, int y)
+{
+	char	*tile_buffer;
+	t_data	img_set;
+
+	if (ray->face_left == 0)
+		tile_buffer = mlx_get_data_addr(win->ea_text, &img_set.bits_per_pixel,
+				&img_set.line_length, &img_set.endian);
+	else
+		tile_buffer = mlx_get_data_addr(win->we_text, &img_set.bits_per_pixel,
+				&img_set.line_length, &img_set.endian);
+	tile_buffer = tile_buffer + ((int)(y * ((double)TEX_H
+					/ (double)ray->wallstriphiehgt)) * img_set.line_length
+			+ ((int)(ray->hit_y) % TEX_W) * (img_set.bits_per_pixel / 8));
+	return (*(int *)tile_buffer);
+}
+
+int	set_color_from_texture(t_window *win, t_ray *ray, int y)
+{
+	if (ray->is_horizontal)
+		return (horizontal_texture(win, ray, y));
+	return (vertical_texture(win, ray, y));
 }
 
 void	calcul_setting(t_window *win, t_ray *ray, int i)
@@ -77,7 +80,7 @@ void	ft_draw_walls(t_window *win)
 		while (j < ray.down_p && j < WIN_H)
 		{
 			ft_pxl_cub(win, i, j, set_color_from_texture(win, &ray, j
-						- ray.top_p));
+					- ray.top_p));
 			j++;
 		}
 		while (j < WIN_H)

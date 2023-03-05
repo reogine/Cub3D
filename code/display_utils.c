@@ -74,12 +74,12 @@ void	ft_pxl_block(t_window *w, t_xy cordo, int clr)
 	while (pos.y < MAP_TILESIZE)
 	{
 		ft_pxl(w, ((cordo.x * MAP_TILESIZE) + 0), ((cordo.y * MAP_TILESIZE)
-					+ pos.y), 0);
+				+ pos.y), 0);
 		pos.x = 0;
 		while (pos.x < MAP_TILESIZE)
 		{
 			ft_pxl(w, ((cordo.x * MAP_TILESIZE) + pos.x), ((cordo.y
-							* MAP_TILESIZE) + pos.y), clr);
+						* MAP_TILESIZE) + pos.y), clr);
 			pos.x++;
 		}
 		pos.y++;

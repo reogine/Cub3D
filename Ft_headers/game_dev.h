@@ -71,6 +71,7 @@ typedef struct s_var
 	char		*path_we;
 	int			*c_colors;
 	int			*f_colors;
+	int			ch;
 }				t_var;
 typedef struct s_ray
 {

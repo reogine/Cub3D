@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checking_utils3.c                                  :+:      :+:    :+:   */
+/*   rgb_to_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 14:37:11 by aomman            #+#    #+#             */
-/*   Updated: 2023/02/24 14:37:14 by aomman           ###   ########.fr       */
+/*   Created: 2023/03/05 14:34:17 by aomman            #+#    #+#             */
+/*   Updated: 2023/03/05 14:34:19 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include"cub3d.h"
 
-char	*skip_spaces(char *str)
+int	rgb_to_hex(int *color)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] <= 32)
-			i++;
-		else
-			break ;
-	}
-	str = ft_substr(str, i, ft_strlen(str));
-	return (str);
-}
-
-int	map_lines(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		i++;
-	i--;
-	return (i);
+	return ((color[0] << 16) + (color[1] << 8) + (color[2]));
 }

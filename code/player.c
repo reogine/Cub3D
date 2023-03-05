@@ -61,7 +61,7 @@ void	ply_display(t_window *win)
 		while (ply_cordo.x < 4)
 		{
 			ft_pxl(win, (ply_cordo.x + (win->ply.x * SCALE)), (ply_cordo.y
-						+ (win->ply.y * SCALE)), 0xf5f5dc);
+					+ (win->ply.y * SCALE)), 0xf5f5dc);
 			ply_cordo.x++;
 		}
 		ply_cordo.y++;
