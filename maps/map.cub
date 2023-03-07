@@ -1,0 +1,23 @@
+
+  SO        ./code/parsing/img/black_brick.xpm
+            NO     ./code/parsing/img/black_brick2.xpm
+      EA  ./code/parsing/img/brick.xpm
+ WE ./code/parsing/img/txt.xpm
+
+             F  83,90,43
+                    C 25,113,149           
+
+
+
+
+
+
+
+
+
+
+         111111
+111111111000001
+100000000W00001
+100000000000101
+111111111111111  
