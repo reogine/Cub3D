@@ -6,7 +6,7 @@
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 18:16:34 by aomman            #+#    #+#             */
-/*   Updated: 2023/02/07 18:16:46 by aomman           ###   ########.fr       */
+/*   Updated: 2023/03/07 10:29:50 by midfath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	set_floor_color(t_var *var, char **color_elmnt)
 
 int	check_floor_color(t_var *var, char *str)
 {
-	int		i;
 	char	*color;
 	char	**color_elmnt;
 
@@ -60,7 +59,6 @@ int	check_floor_color(t_var *var, char *str)
 		return (1);
 	color_elmnt = ft_split(color, ',');
 	free (color);
-	i = 0;
 	if (set_floor_color(var, color_elmnt) == 1)
 		return (1);
 	return (0);
